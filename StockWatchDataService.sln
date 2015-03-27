@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.Algorithm.Test",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.Algorithm", "StockWatch.Algorithm\StockWatch.Algorithm.csproj", "{6EAB6306-7C98-4EDC-B4CD-67AEA5099C06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.DataAccess", "StockWatch.DataAccess\StockWatch.DataAccess.csproj", "{5E30700E-EC18-4D82-9E45-28BB9D2F6083}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.DataAccess.Test", "StockWatch.DataAccess.Test\StockWatch.DataAccess.Test.csproj", "{C3825BDD-6E0D-455A-A336-562E41C578A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{6EAB6306-7C98-4EDC-B4CD-67AEA5099C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EAB6306-7C98-4EDC-B4CD-67AEA5099C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EAB6306-7C98-4EDC-B4CD-67AEA5099C06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E30700E-EC18-4D82-9E45-28BB9D2F6083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E30700E-EC18-4D82-9E45-28BB9D2F6083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E30700E-EC18-4D82-9E45-28BB9D2F6083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E30700E-EC18-4D82-9E45-28BB9D2F6083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3825BDD-6E0D-455A-A336-562E41C578A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3825BDD-6E0D-455A-A336-562E41C578A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3825BDD-6E0D-455A-A336-562E41C578A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3825BDD-6E0D-455A-A336-562E41C578A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
