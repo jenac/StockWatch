@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.Entities.Test", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.Internet.Test", "StockWatch.Internet.Test\StockWatch.Internet.Test.csproj", "{18AAC0E8-9B09-437C-8E16-B42341FD440D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.Algorithm", "StockWatch.Algorithm\StockWatch.Algorithm.csproj", "{F56BA84A-3251-418D-8EFA-E8A13C27ABE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.Algorithm.Test", "StockWatch.Algorithm.Test\StockWatch.Algorithm.Test.csproj", "{E122E092-A65C-4F9D-ABB1-5076D6141406}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{18AAC0E8-9B09-437C-8E16-B42341FD440D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18AAC0E8-9B09-437C-8E16-B42341FD440D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18AAC0E8-9B09-437C-8E16-B42341FD440D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F56BA84A-3251-418D-8EFA-E8A13C27ABE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F56BA84A-3251-418D-8EFA-E8A13C27ABE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F56BA84A-3251-418D-8EFA-E8A13C27ABE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F56BA84A-3251-418D-8EFA-E8A13C27ABE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E122E092-A65C-4F9D-ABB1-5076D6141406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E122E092-A65C-4F9D-ABB1-5076D6141406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E122E092-A65C-4F9D-ABB1-5076D6141406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E122E092-A65C-4F9D-ABB1-5076D6141406}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
