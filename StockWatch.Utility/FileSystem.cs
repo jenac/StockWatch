@@ -23,11 +23,26 @@ namespace StockWatch.Utility
 				Directory.CreateDirectory(folder);
 		}
 
-		public static string GetLogFolder()
+		public static string GetSWLogFolder()
+        {
+            return Path.Combine(GetSWFolder(), "Logs");
+        }
+
+        public static string GetSWTempFolder()
+        {
+            return Path.Combine(GetSWFolder(), "Temp");
+        }
+
+        private static string GetSWFolder()
         {
             string value = Environment.GetEnvironmentVariable("ALLUSERSPROFILE");
-            return Path.Combine(value, "StockWatch", "Logs");
+            return Path.Combine(value, "StockWatch");
         }
+        public static string ToUnixPath(string windowsPath)
+        {
+            return windowsPath.Replace('\\', '/');
+        }
+
 		/*
 		public static void ZipFolder(string sourceFolder, string targetFile)
 		{

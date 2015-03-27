@@ -11,7 +11,7 @@ namespace StockWatch.Utility.Test
         public void CanLog()
         {
             string logFile = 
-                Path.Combine(FileSystem.GetLogFolder(), "LoggerTest.log");
+                Path.Combine(FileSystem.GetSWLogFolder(), "LoggerTest.log");
             if (File.Exists(logFile)) File.Delete(logFile);
             Logger.Instance.Info("Test Logger. ");
             Assert.IsTrue(File.Exists(logFile));

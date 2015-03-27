@@ -9,9 +9,15 @@ namespace StockWatch.Utility.Test
         [TestMethod]
         public void CanGetUnitTestFolder()
         {
-            string path = FileSystem.GetLogFolder();
+            string path = FileSystem.GetSWLogFolder();
             Assert.IsTrue(string.Compare(path, @"C:\ProgramData\StockWatch\Logs", true) == 0);
 
+        }
+
+        [TestMethod]
+        public void CanToUnixPath()
+        {
+            Assert.IsTrue(FileSystem.ToUnixPath(@"C:\windows\") == @"C:/windows/");
         }
     }
 }
