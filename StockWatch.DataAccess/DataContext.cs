@@ -6,7 +6,7 @@ using System.Data.Common;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
-namespace LHM.StockWatch.DataAccess
+namespace StockWatch.DataAccess
 {
 	public class DataContext : DbContext
 	{

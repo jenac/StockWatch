@@ -9,7 +9,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Diagnostics;
 
-namespace LHM.StockWatch.DataAccess
+namespace StockWatch.DataAccess
 {
 	/*
 	public abstract class BaseContext : DbContext

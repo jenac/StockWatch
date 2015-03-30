@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.DataAccess", "St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.DataAccess.Test", "StockWatch.DataAccess.Test\StockWatch.DataAccess.Test.csproj", "{C3825BDD-6E0D-455A-A336-562E41C578A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.DataService", "StockWatch.DataService\StockWatch.DataService.csproj", "{AE7BB115-1D0C-4DC2-922F-EB4BAE02A037}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.DataService.Test", "StockWatch.DataService.Test\StockWatch.DataService.Test.csproj", "{081FCF6E-567A-4D95-AF8A-BEEAE69BB60F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{C3825BDD-6E0D-455A-A336-562E41C578A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3825BDD-6E0D-455A-A336-562E41C578A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3825BDD-6E0D-455A-A336-562E41C578A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE7BB115-1D0C-4DC2-922F-EB4BAE02A037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE7BB115-1D0C-4DC2-922F-EB4BAE02A037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE7BB115-1D0C-4DC2-922F-EB4BAE02A037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE7BB115-1D0C-4DC2-922F-EB4BAE02A037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{081FCF6E-567A-4D95-AF8A-BEEAE69BB60F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{081FCF6E-567A-4D95-AF8A-BEEAE69BB60F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{081FCF6E-567A-4D95-AF8A-BEEAE69BB60F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{081FCF6E-567A-4D95-AF8A-BEEAE69BB60F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

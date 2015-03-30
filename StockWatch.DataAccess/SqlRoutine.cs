@@ -5,7 +5,7 @@ using System.Linq;
 using StockWatch.Utility;
 
 
-namespace LHM.StockWatch.DataAccess
+namespace StockWatch.DataAccess
 {
 	public class SqlRoutine
 	{

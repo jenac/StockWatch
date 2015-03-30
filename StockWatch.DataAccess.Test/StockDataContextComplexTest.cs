@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using StockWatch.Entities;
-using LHM.StockWatch.DataAccess;
+using StockWatch.DataAccess;
 using StockWatch.Utility;
 using System.Linq;
 

@@ -3,7 +3,7 @@ using System.Data.Entity;
 using StockWatch.Utility;
 using System.Collections.Generic;
 
-namespace LHM.StockWatch.DataAccess
+namespace StockWatch.DataAccess
 {
 	public class DatabaseInitializer<T>: DropCreateDatabaseIfModelChanges<T> where T: DataContext
 	{

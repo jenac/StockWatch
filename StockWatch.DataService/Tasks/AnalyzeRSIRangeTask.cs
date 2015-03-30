@@ -1,0 +1,54 @@
+﻿using System;
+using StockWatch.Entities;
+using System.Collections.Generic;
+using System.Linq;
+using StockWatch.Algorithm;
+using StockWatch.DataService.Repositories;
+
+namespace StockWatch.DataService.Tasks
+{
+	public class AnalyzeRSIRangeTask : IDataTask
+	{
+		private readonly IAnalyseRepository _analyseRepo;
+
+		public AnalyzeRSIRangeTask (IAnalyseRepository repo)
+		{
+			_analyseRepo = repo;
+		}
+
+		#region IServiceTask implementation
+
+		public void Execute ()
+		{
+			List<DataState> toProcess = _analyseRepo.LoadFullIndicatorStateByName (RSIRange.Name);
+			toProcess.ForEach (s => _analyseRepo.SaveIndicator (AnalyzeData (s)));
+		}
+
+		#endregion
+
+		public Indicator AnalyzeData (DataState state)
+		{
+			List<double> closePrices = _analyseRepo.LoadClosePriceBySymbol (state.Symbol, true).ToList ();
+
+			RSIRangeData range = RSICalculator.GetRSIRange (RSICalculator.Period, closePrices);
+			if (range == null)
+				return null;
+			RSIRange value = new RSIRange ();
+			value.Symbol = state.Symbol;
+			value.Date = state.Last.Value;
+			value.Min = range.Min;
+			value.Max = range.Max;
+			value.L5 = range.L5;
+			value.H5 = range.H5;
+			value.L10 = range.L10;
+			value.H10 = range.H10;
+			value.L15 = range.L15;
+			value.H15 = range.H15;
+			return value.ToIndicator ();
+		
+		}
+
+
+	}
+}
+

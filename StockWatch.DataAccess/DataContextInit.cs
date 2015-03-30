@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 
-namespace LHM.StockWatch.DataAccess
+namespace StockWatch.DataAccess
 {
 	public static class DataContextInit
 	{
