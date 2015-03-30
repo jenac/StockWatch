@@ -57,7 +57,7 @@ ROWTERMINATOR = '\n'
 		public List<DataState> LoadEodState()
 		{
 			return _objectCtx.ExecuteStoreQuery<DataState>(
-				"EXEC Proc_EodState_Get").ToList();
+				"EXEC Proc_EodState_Get").Distinct().ToList();
 		}
 		#endregion
 
