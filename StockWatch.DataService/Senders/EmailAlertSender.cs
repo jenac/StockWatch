@@ -15,9 +15,8 @@ namespace StockWatch.DataService.Senders
 
 		public void SendAlerts (List<MonitorAlert> alerts)
 		{
-            //lihe
-            string setting = string.Empty;
-            var sender = new EmailSender(setting);
+            const string settingFile = @"C:\Users\Jen\OneDrive\StockWatch\EmailSetting.xml";
+            var sender = new EmailSender(settingFile);
 			sender.SendEmail("lihe.chen@gmail.com", "StockWatch Monitor Alert",
 				CreateAlertHtml(alerts));
 		}
