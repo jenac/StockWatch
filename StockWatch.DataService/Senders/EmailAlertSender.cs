@@ -1,5 +1,6 @@
 ﻿using StockWatch.Entities.Complex;
 using StockWatch.Internet;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,16 +8,19 @@ namespace StockWatch.DataService.Senders
 {
 	public class EmailAlertSender : IAlertSender
 	{
-		public EmailAlertSender ()
+        private readonly string _settingFile ;
+		public EmailAlertSender (string settingFile)
 		{
+            if (string.IsNullOrEmpty(settingFile))
+                throw new ArgumentNullException();
+            _settingFile = settingFile;
 		}
 
 		#region IAlertSender implementation
 
 		public void SendAlerts (List<MonitorAlert> alerts)
 		{
-            const string settingFile = @"C:\Users\Jen\OneDrive\StockWatch\EmailSetting.xml";
-            var sender = new EmailSender(settingFile);
+            var sender = new EmailSender(_settingFile);
 			sender.SendEmail("lihe.chen@gmail.com", "StockWatch Monitor Alert",
 				CreateAlertHtml(alerts));
 		}

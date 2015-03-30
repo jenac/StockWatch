@@ -36,8 +36,8 @@ namespace StockWatch.DataService.Tasks
 			List<EodParam> parameters = states.Select(e => new EodParam
 				{
 					Symbol = e.Symbol,
-					//For symbol without since, we need get 3 years of data
-					Start = (e.Last.HasValue ? e.Last.Value : DateTime.Today.AddYears(-3)),
+					//For symbol without since, we need get 10 years of data
+					Start = (e.Last.HasValue ? e.Last.Value : DateTime.Today.AddYears(-10)),
 					End = lastTradeDate.Value
 				}).Where(p => p.Start < lastTradeDate.Value).ToList();
 
