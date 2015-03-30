@@ -1,8 +1,8 @@
-﻿using System;
+﻿using StockWatch.Utility;
+using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
 using System.Linq;
-using StockWatch.Utility;
+using System.Xml.Linq;
 
 
 namespace StockWatch.DataAccess

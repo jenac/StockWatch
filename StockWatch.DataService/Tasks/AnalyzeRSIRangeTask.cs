@@ -1,9 +1,10 @@
-﻿using System;
-using StockWatch.Entities;
+﻿using StockWatch.Algorithm;
+using StockWatch.Algorithm.Schema;
+using StockWatch.DataService.Repositories;
+using StockWatch.Entities.Complex;
+using StockWatch.Entities.Table;
 using System.Collections.Generic;
 using System.Linq;
-using StockWatch.Algorithm;
-using StockWatch.DataService.Repositories;
 
 namespace StockWatch.DataService.Tasks
 {

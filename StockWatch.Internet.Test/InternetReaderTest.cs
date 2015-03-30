@@ -1,8 +1,7 @@
-﻿using System;
-using System.Text;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StockWatch.Entities.Complex;
+using System;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StockWatch.Entities;
 using System.Diagnostics;
 using System.Linq;
 

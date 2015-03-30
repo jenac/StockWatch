@@ -1,6 +1,5 @@
-﻿using System;
+﻿using System.Linq;
 using TicTacTec.TA.Library;
-using System.Linq;
 namespace StockWatch.Algorithm
 {
 	public static class SMACalculator

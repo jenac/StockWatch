@@ -1,8 +1,8 @@
-﻿using System;
-using System.Xml.Linq;
+﻿using StockWatch.Entities.Table;
 using StockWatch.Utility;
+using System.Xml.Linq;
 
-namespace StockWatch.Entities
+namespace StockWatch.Entities.Complex
 {
 	public class GainLoss : IndicatorDTO
 	{

@@ -1,6 +1,5 @@
-﻿using System;
-
-namespace StockWatch.Entities
+﻿
+namespace StockWatch.Entities.ThirdParty
 {
 	public class ETF
 	{

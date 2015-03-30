@@ -1,12 +1,12 @@
-﻿using System;
-using StockWatch.DataAccess;
-using System.Collections.Generic;
-using StockWatch.Utility;
-using System.Diagnostics;
-using StockWatch.Entities;
+﻿using StockWatch.DataAccess;
 using StockWatch.DataService.Repositories;
-using StockWatch.DataService.Tasks;
 using StockWatch.DataService.Senders;
+using StockWatch.DataService.Tasks;
+using StockWatch.Entities.Complex;
+using StockWatch.Utility;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace StockWatch.DataService.Workers
 {

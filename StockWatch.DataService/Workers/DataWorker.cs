@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using StockWatch.DataAccess;
-using StockWatch.Utility;
-using System.Diagnostics;
+﻿using StockWatch.DataAccess;
 using StockWatch.DataService.Repositories;
 using StockWatch.DataService.Tasks;
+using StockWatch.Utility;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace StockWatch.DataService.Workers
 {

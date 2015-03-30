@@ -1,7 +1,7 @@
-﻿using System;
-using StockWatch.Entities;
-using System.Linq;
+﻿using StockWatch.Entities.Table;
 using StockWatch.Utility;
+using System;
+using System.Linq;
 
 namespace StockWatch.Internet
 {

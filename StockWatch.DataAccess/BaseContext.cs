@@ -1,14 +1,4 @@
-﻿using System;
-using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
-using StockWatch.Entities;
-using System.IO;
-using StockWatch.Utility;
-using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Diagnostics;
-
+﻿
 namespace StockWatch.DataAccess
 {
 	/*

@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace StockWatch.Entities
+namespace StockWatch.Entities.Table
 {
 	[Table("Company")]
 	public class Company 

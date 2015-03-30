@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using StockWatch.Entities;
-using StockWatch.DataService.Repositories;
+﻿using StockWatch.DataService.Repositories;
+using StockWatch.Entities.Complex;
+using StockWatch.Entities.Table;
 using StockWatch.Internet;
 using StockWatch.Utility;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 namespace StockWatch.DataService.Tasks
 {
 	public class UpdateEodTask : IDataTask

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StockWatch.Entities
+namespace StockWatch.Entities.Complex
 {
 	public struct EodParam
 	{

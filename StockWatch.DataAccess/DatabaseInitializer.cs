@@ -1,7 +1,7 @@
-﻿using System;
-using System.Data.Entity;
-using StockWatch.Utility;
+﻿using StockWatch.Utility;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace StockWatch.DataAccess
 {

@@ -1,7 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StockWatch.Algorithm.Schema;
 using StockWatch.Utility;
+using System.Collections.Generic;
 namespace StockWatch.Algorithm.Test
 {
     [TestClass]

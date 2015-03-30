@@ -1,5 +1,4 @@
-﻿using System;
-using StockWatch.Entities;
+﻿using StockWatch.Entities.Complex;
 using System.Collections.Generic;
 
 namespace StockWatch.DataService.Tasks

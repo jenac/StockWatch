@@ -1,6 +1,7 @@
-﻿using System;
+﻿using StockWatch.Entities.Table;
+using System;
 
-namespace StockWatch.Entities
+namespace StockWatch.Entities.Complex
 {
 	public abstract class IndicatorDTO
 	{

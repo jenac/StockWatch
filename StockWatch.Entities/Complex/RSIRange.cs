@@ -1,7 +1,7 @@
-﻿using System;
-using System.Xml.Linq;
+﻿using StockWatch.Entities.Table;
 using StockWatch.Utility;
-namespace StockWatch.Entities
+using System.Xml.Linq;
+namespace StockWatch.Entities.Complex
 {
 	public class RSIRange : IndicatorDTO
 	{

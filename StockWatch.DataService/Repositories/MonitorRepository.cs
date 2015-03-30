@@ -1,6 +1,6 @@
-﻿using System;
-using StockWatch.DataAccess;
-using StockWatch.Entities;
+﻿using StockWatch.DataAccess;
+using StockWatch.Entities.Complex;
+using StockWatch.Entities.Table;
 using System.Collections.Generic;
 using System.Linq;
 

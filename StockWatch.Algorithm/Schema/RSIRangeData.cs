@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StockWatch.Algorithm
+namespace StockWatch.Algorithm.Schema
 {
 	public class RSIRangeData
 	{

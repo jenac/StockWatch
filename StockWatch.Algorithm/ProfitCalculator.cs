@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace StockWatch.Algorithm
 {
 	public static class ProfitCalculator

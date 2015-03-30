@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockWatch.Algorithm.Schema;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TicTacTec.TA.Library;

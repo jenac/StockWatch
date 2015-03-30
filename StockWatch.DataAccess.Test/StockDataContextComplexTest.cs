@@ -1,10 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Data.SqlClient;
-using System.Collections.Generic;
-using StockWatch.Entities;
-using StockWatch.DataAccess;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StockWatch.Entities.Complex;
+using StockWatch.Entities.Helper;
+using StockWatch.Entities.Table;
 using StockWatch.Utility;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace StockWatch.DataAccess.Test

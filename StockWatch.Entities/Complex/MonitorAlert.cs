@@ -1,6 +1,5 @@
-﻿using System;
-
-namespace StockWatch.Entities
+﻿
+namespace StockWatch.Entities.Complex
 {
 	public class MonitorAlert
 	{

@@ -1,7 +1,7 @@
-﻿using System;
-using StockWatch.DataAccess;
+﻿using StockWatch.DataAccess;
+using StockWatch.Entities.Complex;
+using StockWatch.Entities.Table;
 using System.Collections.Generic;
-using StockWatch.Entities;
 using System.Linq;
 
 namespace StockWatch.DataService.Repositories

@@ -1,9 +1,9 @@
-﻿using StockWatch.Entities;
-using System.Collections.Generic;
-using System.Linq;
+﻿using StockWatch.DataService.Repositories;
+using StockWatch.Entities.Table;
 using StockWatch.Internet;
 using StockWatch.Utility;
-using StockWatch.DataService.Repositories;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace StockWatch.DataService.Tasks
 {

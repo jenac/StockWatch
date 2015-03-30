@@ -1,5 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StockWatch.Entities.Helper;
+using StockWatch.Entities.Table;
 
 namespace StockWatch.Entities.Test
 {

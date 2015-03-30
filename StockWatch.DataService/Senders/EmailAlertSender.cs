@@ -1,8 +1,7 @@
-﻿using System;
-using StockWatch.Entities;
+﻿using StockWatch.Entities.Complex;
+using StockWatch.Internet;
 using System.Collections.Generic;
 using System.Text;
-using StockWatch.Internet;
 
 namespace StockWatch.DataService.Senders
 {

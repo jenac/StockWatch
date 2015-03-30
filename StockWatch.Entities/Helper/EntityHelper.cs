@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace StockWatch.Entities
+namespace StockWatch.Entities.Helper
 {
 	public static class EntityHelper
 	{

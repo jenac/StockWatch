@@ -1,10 +1,10 @@
-﻿using System.Data.Entity;
+﻿using StockWatch.Entities.Complex;
+using StockWatch.Entities.Table;
 using System.Collections.Generic;
-using StockWatch.Utility;
-using StockWatch.Entities;
 using System.Data.Common;
-using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 namespace StockWatch.DataAccess
 {
