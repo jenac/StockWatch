@@ -1,0 +1,9 @@
+﻿You need NodeJs, Yeoman to generate.
+For the first time, you need re-geneate the yo scaffold
+1. Delete all files and folders under the LHM.StockWatch.WebFrontEnd folder
+2. run command yo ko
+3. run command git checkout .
+4. run command bower update
+*. install signalR client using bower: bower install signalr --save
+
+when do front side design, you could just use the http-server

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.WebHost", "Stock
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.WebConsole", "StockWatch.WebConsole\StockWatch.WebConsole.csproj", "{7F08ADAD-1B68-414E-9036-2A5DD5A1BAB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockWatch.WebKO", "StockWatch.WebKO\StockWatch.WebKO.csproj", "{D3388EEB-D5FB-4ABD-8ABD-F99EE032D677}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7F08ADAD-1B68-414E-9036-2A5DD5A1BAB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F08ADAD-1B68-414E-9036-2A5DD5A1BAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F08ADAD-1B68-414E-9036-2A5DD5A1BAB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3388EEB-D5FB-4ABD-8ABD-F99EE032D677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3388EEB-D5FB-4ABD-8ABD-F99EE032D677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3388EEB-D5FB-4ABD-8ABD-F99EE032D677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3388EEB-D5FB-4ABD-8ABD-F99EE032D677}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
