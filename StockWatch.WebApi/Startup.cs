@@ -43,6 +43,7 @@ namespace StockWatch.WebApi
             };
             appBuilder.UseFileServer(htmlOptions);
 
+            /*
             var scriptsFileSystem = new PhysicalFileSystem(@".\Scripts");
             var scriptsOptions = new FileServerOptions()
             {
@@ -50,7 +51,7 @@ namespace StockWatch.WebApi
                 FileSystem = scriptsFileSystem,
                 RequestPath = new PathString("/Scripts")
             };
-            appBuilder.UseFileServer(scriptsOptions);
+            appBuilder.UseFileServer(scriptsOptions);*/
         }
     }
 }
