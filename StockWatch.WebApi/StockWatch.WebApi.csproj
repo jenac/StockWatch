@@ -123,6 +123,12 @@
     <Folder Include="Hubs\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StockWatch.WebKO\StockWatch.WebKO.csproj">
+      <Project>{d3388eeb-d5fb-4abd-8abd-f99ee032d677}</Project>
+      <Name>StockWatch.WebKO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
