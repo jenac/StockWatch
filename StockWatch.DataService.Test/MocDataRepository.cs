@@ -1,4 +1,4 @@
-﻿using StockWatch.DataService.Repositories;
+﻿using StockWatch.DataAccess.Repositories;
 using StockWatch.Entities.Complex;
 using System;
 using System.Collections.Generic;

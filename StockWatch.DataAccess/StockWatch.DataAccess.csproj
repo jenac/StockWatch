@@ -54,6 +54,12 @@
     <Compile Include="DataContext.cs" />
     <Compile Include="DataContextInit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AnalyseRepository.cs" />
+    <Compile Include="Repositories\DataRepository.cs" />
+    <Compile Include="Repositories\IAnalyseRepository.cs" />
+    <Compile Include="Repositories\IDataRepository.cs" />
+    <Compile Include="Repositories\IMonitorRepository.cs" />
+    <Compile Include="Repositories\MonitorRepository.cs" />
     <Compile Include="SqlRoutine.cs" />
   </ItemGroup>
   <ItemGroup>

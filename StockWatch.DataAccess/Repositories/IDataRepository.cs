@@ -1,7 +1,7 @@
 ﻿using StockWatch.Entities.Complex;
 using System.Collections.Generic;
 
-namespace StockWatch.DataService.Repositories
+namespace StockWatch.DataAccess.Repositories
 {
 	//The repo interface for data worker.
 	//bulk insert for eod and company

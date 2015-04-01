@@ -101,12 +101,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\DirectSQLController.cs" />
+    <Compile Include="Models\ActionResultJs.cs" />
+    <Compile Include="Models\PostponeAlertJs.cs" />
+    <Compile Include="Models\SharpChartJS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Html\readme.html">
@@ -119,11 +125,13 @@
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="Hubs\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\StockWatch.DataAccess\StockWatch.DataAccess.csproj">
+      <Project>{5e30700e-ec18-4d82-9e45-28bb9d2f6083}</Project>
+      <Name>StockWatch.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StockWatch.WebKO\StockWatch.WebKO.csproj">
       <Project>{d3388eeb-d5fb-4abd-8abd-f99ee032d677}</Project>
       <Name>StockWatch.WebKO</Name>

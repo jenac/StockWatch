@@ -1,5 +1,5 @@
 ﻿using StockWatch.DataAccess;
-using StockWatch.DataService.Repositories;
+using StockWatch.DataAccess.Repositories;
 using StockWatch.DataService.Senders;
 using StockWatch.DataService.Tasks;
 using StockWatch.Entities.Complex;

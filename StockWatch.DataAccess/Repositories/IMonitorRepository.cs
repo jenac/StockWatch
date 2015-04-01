@@ -2,7 +2,7 @@
 using StockWatch.Entities.Table;
 using System.Collections.Generic;
 
-namespace StockWatch.DataService.Repositories
+namespace StockWatch.DataAccess.Repositories
 {
 	public interface IMonitorRepository
 	{

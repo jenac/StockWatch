@@ -3,7 +3,7 @@ using StockWatch.Entities.Complex;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StockWatch.DataService.Repositories
+namespace StockWatch.DataAccess.Repositories
 {
 	public class DataRepository : IDataRepository
 	{

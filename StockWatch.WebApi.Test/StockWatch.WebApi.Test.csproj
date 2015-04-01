@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{081FCF6E-567A-4D95-AF8A-BEEAE69BB60F}</ProjectGuid>
+    <ProjectGuid>{96505A9B-4782-47EF-AACA-183D9CEF6977}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StockWatch.DataService.Test</RootNamespace>
-    <AssemblyName>StockWatch.DataService.Test</AssemblyName>
+    <RootNamespace>StockWatch.WebApi.Test</RootNamespace>
+    <AssemblyName>StockWatch.WebApi.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,33 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AnalyzeGainLossTaskTest.cs" />
-    <Compile Include="AnalyzeProfitTaskTest.cs" />
-    <Compile Include="AnalyzeRSIPredictTaskTest.cs" />
-    <Compile Include="AnalyzeRSIRangeTaskTest.cs" />
-    <Compile Include="AnalyzeRSITaskTest.cs" />
-    <Compile Include="AnalyzeSMATaskTest.cs" />
-    <Compile Include="MocAnalyseRepository.cs" />
-    <Compile Include="MocDataRepository.cs" />
-    <Compile Include="MocMonitorRepository.cs" />
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceHelperTest.cs" />
-    <Compile Include="UpdateCompanyTaskTest.cs" />
-    <Compile Include="UpdateEodTaskTest.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\StockWatch.DataAccess\StockWatch.DataAccess.csproj">
-      <Project>{5e30700e-ec18-4d82-9e45-28bb9d2f6083}</Project>
-      <Name>StockWatch.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StockWatch.DataService\StockWatch.DataService.csproj">
-      <Project>{ae7bb115-1d0c-4dc2-922f-eb4bae02a037}</Project>
-      <Name>StockWatch.DataService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StockWatch.Entities\StockWatch.Entities.csproj">
-      <Project>{3f90c7dc-bcd7-4a6d-b70a-e8b740bb0a74}</Project>
-      <Name>StockWatch.Entities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
