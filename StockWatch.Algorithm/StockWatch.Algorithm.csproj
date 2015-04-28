@@ -42,6 +42,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADXCalculator.cs" />
+    <Compile Include="AlgorithmHelper.cs" />
     <Compile Include="ContinuousCalculator.cs" />
     <Compile Include="ProfitCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

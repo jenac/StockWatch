@@ -22,7 +22,8 @@ namespace StockWatch.DataAccess
 		private void UpdateStructureRoutines(T context)
 		{
 			List<string> tableStmts = new List<string> {
-@"CREATE TABLE [dbo].[Indicator](
+@"IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Indicator'))
+CREATE TABLE [dbo].[Indicator](
 	[Symbol] [nvarchar](16) NOT NULL,
 	[Name] [nvarchar](50) NOT NULL,
 	[Date] [datetime] NOT NULL,
@@ -32,6 +33,15 @@ PRIMARY KEY CLUSTERED
 	[Symbol] ASC,
 	[Name] ASC
 ))", 
+@"IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Research'))
+CREATE TABLE [dbo].[Research](
+  [Name] [nvarchar](50) NOT NULL,
+	[Type] [nvarchar](50) NOT NULL,
+	[Data] [xml] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Name]
+))"
 			};
 
 			List<string> viewStmts = new List<string> {

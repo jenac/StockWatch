@@ -28,7 +28,8 @@ namespace StockWatch.DataService.Workers
 				new AnalyzeSMATask(_analyseRepo),
 				new AnalyzeRSIPredictTask(_analyseRepo),
 				new AnalyzeRSIRangeTask(_analyseRepo),
-				new AnalyzeGainLossTask(_analyseRepo)
+				new AnalyzeGainLossTask(_analyseRepo),
+                new AnalyzeADXTask(_analyseRepo),
 			};
 		}
 

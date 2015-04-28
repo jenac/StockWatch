@@ -41,6 +41,25 @@ namespace StockWatch.DataAccess.Repositories
 				
 		}
 		#endregion
-	}
+
+
+        public IEnumerable<double> LoadHighPriceBySymbol(string symbol, bool sortAsc)
+        {
+            var eods = _context.Eods.Where(e => e.Symbol == symbol);
+            if (sortAsc)
+                return eods.OrderBy(e => e.Date).Select(e => e.High);
+            else
+                return eods.OrderByDescending(e => e.Date).Select(e => e.High);
+        }
+
+        public IEnumerable<double> LoadLowPriceBySymbol(string symbol, bool sortAsc)
+        {
+            var eods = _context.Eods.Where(e => e.Symbol == symbol);
+            if (sortAsc)
+                return eods.OrderBy(e => e.Date).Select(e => e.Low);
+            else
+                return eods.OrderByDescending(e => e.Date).Select(e => e.Low);
+        }
+    }
 }
 

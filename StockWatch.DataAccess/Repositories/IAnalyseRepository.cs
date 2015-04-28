@@ -14,6 +14,10 @@ namespace StockWatch.DataAccess.Repositories
 
 		IEnumerable<double> LoadClosePriceBySymbol (string symbol, bool sortAsc);
 
+        IEnumerable<double> LoadHighPriceBySymbol(string symbol, bool sortAsc);
+
+        IEnumerable<double> LoadLowPriceBySymbol(string symbol, bool sortAsc);
+
 	}
 }
 

@@ -36,7 +36,7 @@ namespace StockWatch.DataService.Tasks
 			value.Symbol = state.Symbol;
 			value.Date = state.Last.Value;
 			value.Avg = RsiValues.Average();
-			value.LastRSI = RSICalculator.GetLastRSI(RsiValues);
+            value.LastRSI = AlgorithmHelper.GetLast(RsiValues);
 			value.PercentGT50 = RsiValues.Where(r => r > 50).Count() * 100 / RsiValues.Count();
 			value.TotalDays = RsiValues.Count();
 			value.MaxContGT50Days = cont.TrueMax;

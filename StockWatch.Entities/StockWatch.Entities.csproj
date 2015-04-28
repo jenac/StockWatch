@@ -46,13 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Complex\ADX.cs" />
     <Compile Include="Complex\ComputedEod.cs" />
     <Compile Include="Complex\DataState.cs" />
+    <Compile Include="Complex\DirectSQL.cs" />
     <Compile Include="Complex\EodParam.cs" />
     <Compile Include="Complex\GainLoss.cs" />
     <Compile Include="Complex\IndicatorDTO.cs" />
     <Compile Include="Complex\MonitorAlert.cs" />
     <Compile Include="Complex\Profit.cs" />
+    <Compile Include="Complex\ResearchDTO.cs" />
     <Compile Include="Complex\RSI.cs" />
     <Compile Include="Complex\RSIPredict.cs" />
     <Compile Include="Complex\RSIRange.cs" />
@@ -63,6 +66,8 @@
     <Compile Include="Table\Eod.cs" />
     <Compile Include="Table\Indicator.cs" />
     <Compile Include="Table\MonitorObject.cs" />
+    <Compile Include="Table\Research.cs" />
+    <Compile Include="Table\ResearchMapping.cs" />
     <Compile Include="ThirdParty\ETF.cs" />
   </ItemGroup>
   <ItemGroup>

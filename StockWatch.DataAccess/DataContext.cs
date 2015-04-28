@@ -42,7 +42,7 @@ namespace StockWatch.DataAccess
 			modelBuilder.Entity<Company>().MapToStoredProcedures();
 		}
 
-		#region Update Repo
+		#region Update
 		public int LoadData(string file, string table)
 		{
             const string _BULK_INSERT = @"BULK INSERT {0} FROM '{1}' WITH ( 

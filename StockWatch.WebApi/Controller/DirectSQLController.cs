@@ -1,5 +1,9 @@
-﻿using System;
+﻿using StockWatch.DataAccess;
+using StockWatch.DataAccess.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,14 +11,30 @@ using System.Web.Http;
 
 namespace StockWatch.WebApi.Controller
 {
+    /*
     [RoutePrefix("api/directsql")]
     public class DirectSQLController : ApiController
     {
-        private StockDataContext _dataCtx;
+        private DataContext _ctx;
+        private IWebRepository _webRepo;
+
         public DirectSQLController()
         {
-            _dataCtx = new StockDataContext(
-                ServiceSettings.Instance.StockDataConnectionString);
+            using (var connection = new SqlConnection(
+                ConfigurationManager.ConnectionStrings["StockData"].ConnectionString))
+            {
+                using (var context = new DataContext(connection, false))
+                {
+                    context.Database.Initialize(true);//.CreateIfNotExists ();
+                }
+                connection.Open();
+
+                using (var context = new DataContext(connection, false))
+                {
+                    var runner = new ServiceRunner(context, sender);
+                    runner.Run();
+                }
+            }
         }
 
         // GET api/directsql/
@@ -75,5 +95,5 @@ namespace StockWatch.WebApi.Controller
             }
             base.Dispose(disposing);
         }
-    }
+    }*/
 }

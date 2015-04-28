@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseContext.cs" />
+    <Compile Include="Contexts\WebDbContext.cs" />
     <Compile Include="DatabaseInitializer.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="DataContextInit.cs" />
@@ -59,7 +59,9 @@
     <Compile Include="Repositories\IAnalyseRepository.cs" />
     <Compile Include="Repositories\IDataRepository.cs" />
     <Compile Include="Repositories\IMonitorRepository.cs" />
+    <Compile Include="Repositories\IWebRepository.cs" />
     <Compile Include="Repositories\MonitorRepository.cs" />
+    <Compile Include="Repositories\WebApiRepository.cs" />
     <Compile Include="SqlRoutine.cs" />
   </ItemGroup>
   <ItemGroup>

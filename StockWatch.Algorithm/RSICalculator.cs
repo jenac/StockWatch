@@ -19,16 +19,9 @@ namespace StockWatch.Algorithm
 			return rsiValues.Take(rsiEnd).ToArray();
 		}
 
-		public static double GetLastRSI(double[] rsiValues)
-		{
-			if (rsiValues.Length == 0)
-				return 0;
-			return rsiValues[rsiValues.Length - 1];
-		}
-
 		public static double CalculateLastRsi(int period, double[] prices)
 		{
-			return GetLastRSI(CalculateRsi(period, prices));
+			return AlgorithmHelper.GetLast(CalculateRsi(period, prices));
 		}
 
 		public static double PredictPrice(int period, double targetRSI, List<double> prices)

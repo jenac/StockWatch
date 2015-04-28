@@ -107,6 +107,17 @@ namespace StockWatch.DataService.Test
 		}
 
 		#endregion
-	}
+
+
+        public IEnumerable<double> LoadHighPriceBySymbol(string symbol, bool sortAsc)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<double> LoadLowPriceBySymbol(string symbol, bool sortAsc)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 
