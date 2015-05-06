@@ -52,7 +52,18 @@ PRIMARY KEY CLUSTERED
 (
 	[Symbol]
 ))",
-			};
+@"IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'DailySummary'))
+CREATE TABLE [dbo].[DailySummary](
+    [Symbol] [nvarchar](16) NOT NULL,
+	[Date] [datetime] NOT NULL,
+    [Version] [nvarchar](64) NOT NULL,
+	[Data] [xml] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Symbol] ASC,
+    [Date] ASC
+))",
+        };
 
 			List<string> viewStmts = new List<string> {
 @"CREATE VIEW [dbo].[Vw_Symbols]
@@ -130,15 +141,53 @@ BEGIN
 		VALUES (@Symbol, @Name, @Date, @Data)
 	END;
 END",
+
 @"IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[Proc_AllWatchedStocks_Get]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
     DROP PROCEDURE [dbo].[Proc_AllWatchedStocks_Get]",
 @"CREATE PROCEDURE [dbo].[Proc_AllWatchedStocks_Get] 
-(
-)
 AS 
 BEGIN
 	SELECT [Symbol], [InPossession], [InIDB50],	[Data] FROM dbo.Stock
 END",
+
+@"IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[Proc_DailySummaryState_Get]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE [dbo].[Proc_DailySummaryState_Get]",
+@"CREATE PROCEDURE [dbo].[Proc_DailySummaryState_Get] 
+AS 
+BEGIN
+	WITH CTE AS(
+		SELECT Symbol, MAX([Date]) FROM DailySummary GROUP BY Symbol
+	)
+	SELECT Vw_Symbols.Symbol, Vw_Symbols.Last FROM CTE
+		RIGHT JOIN Vw_Symbols
+		ON CTE.Symbol = Vw_Symbols.Symbol 
+		WHERE (Vw_Symbols.Last > CTE.Date OR CTE.Date IS NULL) 
+END",
+
+@"IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[Proc_DailySummary_Upsert]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE [dbo].[Proc_DailySummary_Upsert]",
+@"CREATE PROCEDURE [dbo].[Proc_DailySummary_Upsert] 
+(
+	@Symbol NVARCHAR(16)
+    , @Date DATETIME
+	, @Version NVARCHAR(64)
+	, @Data XML
+)
+AS 
+BEGIN
+	UPDATE [DailySummary]
+		SET [Version] = @Version,
+		[Data] = @Data
+		WHERE [Symbol] = @Symbol AND [Date] = @Date
+	IF @@ROWCOUNT = 0 
+	BEGIN
+		INSERT INTO [DailySummary] ([Symbol], [Date], [Version], [Data])
+		VALUES (@Symbol, @Date, @Version, @Data)
+	END;
+END",
+
+    
+
 			};
 
 			foreach (string sql in tableStmts) {

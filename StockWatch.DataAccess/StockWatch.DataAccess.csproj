@@ -58,8 +58,10 @@
     <Compile Include="Repositories\IAnalyseRepository.cs" />
     <Compile Include="Repositories\IDataRepository.cs" />
     <Compile Include="Repositories\IMonitorRepository.cs" />
+    <Compile Include="Repositories\ISummaryRepository.cs" />
     <Compile Include="Repositories\IWebRepository.cs" />
     <Compile Include="Repositories\MonitorRepository.cs" />
+    <Compile Include="Repositories\SummaryRepository.cs" />
     <Compile Include="Repositories\WebApiRepository.cs" />
     <Compile Include="SqlRoutine.cs" />
   </ItemGroup>

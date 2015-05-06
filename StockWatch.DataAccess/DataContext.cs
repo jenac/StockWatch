@@ -97,6 +97,17 @@ ROWTERMINATOR = '\n'
             return _objectCtx.ExecuteStoreQuery<Stock>("EXEC Proc_AllWatchedStocks_Get");
         }
 		#endregion
-	}
+
+        internal IEnumerable<DataState> LoadDailySummaryState()
+        {
+            return _objectCtx.ExecuteStoreQuery<DataState>("EXEC Proc_DailySummaryState_Get");
+        }
+
+        internal void SaveDailySummary(DailySummary value)
+        {
+            this.Database.ExecuteSqlCommand("EXEC Proc_DailySummary_Upsert {0}, {1}, {2}, {3}",
+                value.Symbol, value.Date, value.Version, value.Data);
+        }
+    }
 }
 

@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Complex\ADX.cs" />
     <Compile Include="Complex\ComputedEod.cs" />
+    <Compile Include="Complex\DailySummaryDTO.cs" />
+    <Compile Include="Complex\DailyV001.cs" />
     <Compile Include="Complex\DataState.cs" />
     <Compile Include="Complex\DirectSQL.cs" />
     <Compile Include="Complex\EodParam.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Table\Company.cs" />
     <Compile Include="Table\CompanyMapping.cs" />
+    <Compile Include="Table\DailySummary.cs" />
     <Compile Include="Table\Eod.cs" />
     <Compile Include="Table\EodMapping.cs" />
     <Compile Include="Table\Indicator.cs" />
