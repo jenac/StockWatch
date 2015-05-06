@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace StockWatch.Entities.Table
 {
-    public class ResearchMapping: EntityTypeConfiguration<Research>
+    public class EodMapping : EntityTypeConfiguration<Eod>
     {
-        public ResearchMapping()
+        public EodMapping()
         {
-            this.HasKey(x => x.Name);
-            this.ToTable("Research");
+            this.HasKey(e => new { e.Symbol, e.Date });
+            this.Property(e => e.Symbol).HasMaxLength(16);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 namespace StockWatch.DataAccess
 {
@@ -14,8 +15,7 @@ namespace StockWatch.DataAccess
 		//Raw Data
 		public DbSet<Eod> Eods { get; set; }
 		public DbSet<Company> Companies { get; set; }
-		public DbSet<MonitorObject> MonitorObjects { get; set; }
-
+		
 		//To avoid database schema upgrade using command line
 		//No DBSet for Analysis Data, 
 		//No DBSet for Web Data, 
@@ -26,8 +26,8 @@ namespace StockWatch.DataAccess
 
 		}
 
-		public DataContext(DbConnection existingConnection, bool contextOwnsConnection)
-			: base(existingConnection, contextOwnsConnection)
+		public DataContext(string connectionString)
+			: base(connectionString)
 		{
 			_objectCtx = (this as IObjectContextAdapter).ObjectContext;
 			_objectCtx.CommandTimeout = 300;
@@ -37,7 +37,10 @@ namespace StockWatch.DataAccess
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
-			base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Configurations.Add<Company>(new CompanyMapping());
+            modelBuilder.Configurations.Add<Eod>(new EodMapping());
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 			modelBuilder.Entity<Eod>().MapToStoredProcedures();
 			modelBuilder.Entity<Company>().MapToStoredProcedures();
 		}

@@ -18,6 +18,7 @@ namespace StockWatch.WinSvc
 {
     public partial class DataService : ServiceBase
     {
+        private const string STOCKDATA = "StockData";
         public DataService()
         {
             InitializeComponent();
@@ -40,21 +41,18 @@ namespace StockWatch.WinSvc
         {
             var sender = new EmailAlertSender(ConfigurationManager.AppSettings["EmailSettingFile"]);
             DataContextInit.RegisterContextInitializers();
-            using (var connection = new SqlConnection(
-                ConfigurationManager.ConnectionStrings["StockData"].ConnectionString))
-            {
-                using (var context = new DataContext(connection, false))
-                {
-                    context.Database.Initialize(true);//.CreateIfNotExists ();
-                }
-                connection.Open();
 
-                using (var context = new DataContext(connection, false))
-                {
-                    var runner = new ServiceRunner(context, sender);
-                    runner.Run();
-                }
+            using (var context = new DataContext(STOCKDATA))
+            {
+                context.Database.Initialize(true);//.CreateIfNotExists ();
             }
+            
+            using (var context = new DataContext(STOCKDATA))
+            {
+                var runner = new ServiceRunner(context, sender);
+                runner.Run();
+            }
+
         }
     }
 }

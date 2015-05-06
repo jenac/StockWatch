@@ -1,5 +1,4 @@
-﻿using StockWatch.DataAccess.Contexts;
-using StockWatch.Entities.Complex;
+﻿using StockWatch.Entities.Complex;
 using StockWatch.Entities.Table;
 using System;
 using System.Collections.Generic;
@@ -10,10 +9,11 @@ using StockWatch.Utility;
 
 namespace StockWatch.DataAccess.Repositories
 {
-    public class WebApiRepository : IWebRepository
+    public class WebApiRepository //: IWebRepository
     {
-        private readonly WebDbContext _context;
-        public WebApiRepository(WebDbContext context)
+        /*
+        private readonly DataContext _context;
+        public WebApiRepository(DataContext context)
         {
             this._context = context;
         }
@@ -40,6 +40,6 @@ namespace StockWatch.DataAccess.Repositories
         public void DeleteResearch(string name)
         {
             _context.Researches.Remove(new Research { Name = name });
-        }
+        }*/
     }
 }

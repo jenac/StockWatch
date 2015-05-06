@@ -21,7 +21,7 @@ namespace StockWatch.DataService.Tasks
 
 		public List<MonitorAlert> Scan ()
 		{
-			List<MonitorObject> toProcess = _monitorRepo.MonitorObjects.ToList ();
+			List<Stock> toProcess = _monitorRepo.MonitorObjects.ToList ();
 			return toProcess
 				.Where (s => s.InPossession || s.SendAlertAfter < DateTime.Now)
 				.Select (s => ScanObject (s))
@@ -31,7 +31,7 @@ namespace StockWatch.DataService.Tasks
 
 		#endregion
 
-		private MonitorAlert ScanObject (MonitorObject monitorObject)
+		private MonitorAlert ScanObject (Stock monitorObject)
 		{
 			//get current price
 			double curPrice = InternetReader.ReadCurrentPrice (monitorObject.Symbol);

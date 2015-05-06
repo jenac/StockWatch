@@ -6,7 +6,7 @@ namespace StockWatch.DataAccess.Repositories
 {
 	public interface IMonitorRepository
 	{
-		IEnumerable<MonitorObject> MonitorObjects { get; }
+		IEnumerable<Stock> MonitorObjects { get; }
 
 		RSIPredict LoadRSIPredict(string symbol);
 	}

@@ -4,8 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StockWatch.Entities.Table
 {
-	[Table("Indicator")]
-    public class Indicator
+	public class Indicator
     {
         [Key, Column(Order = 0), MaxLength(16)]
         public string Symbol { get; set; }

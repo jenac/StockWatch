@@ -13,7 +13,7 @@ namespace StockWatch.DataAccess.Test
     [TestClass]
     public class StockDataContextComplexTest
     {
-        private SqlConnection _connection;
+        private const string STOCKDATA = "StockData";
 
         private List<Eod> _eods = new List<Eod> {
 			new Eod { Symbol="SPY", Date=new DateTime(2015, 2, 19), Open=209.41, High=210.42, Low=209.24, Close=209.98},
@@ -109,14 +109,13 @@ namespace StockWatch.DataAccess.Test
         public void Init()
         {
             DataContextInit.RegisterContextInitializers();
-            const string connectionString = @"Server=.\SQL2012;Database=StockWatch-Test;Trusted_Connection=True;";
-            _connection = new SqlConnection(connectionString);
-            using (var context = new DataContext(_connection, false))
+            
+            using (var context = new DataContext(STOCKDATA))
             {
                 context.Database.Initialize(true);//.CreateIfNotExists ();
             }
-            _connection.Open();
-            using (var context = new DataContext(_connection, false))
+            
+            using (var context = new DataContext(STOCKDATA))
             {
                 // Interception/SQL logging
                 context.Database.Log = (string message) =>
@@ -132,14 +131,13 @@ namespace StockWatch.DataAccess.Test
         [TestCleanup]
         public void Cleanup()
         {
-            using (var context = new DataContext(_connection, false))
+            using (var context = new DataContext(STOCKDATA))
             {
                 context.Database.ExecuteSqlCommand(
                     string.Format("delete from {0}", EntityHelper.GetTableName(typeof(Eod))));
                 context.Database.ExecuteSqlCommand(
                     string.Format("delete from {0}", EntityHelper.GetTableName(typeof(Company))));
             }
-            _connection.Dispose();
         }
 
         [TestMethod]
@@ -148,7 +146,7 @@ namespace StockWatch.DataAccess.Test
             List<DataState> states;
             try
             {
-                using (var context = new DataContext(_connection, false))
+                using (var context = new DataContext(STOCKDATA))
                 {
                     states = context.LoadEodState();
                 }
@@ -167,7 +165,7 @@ namespace StockWatch.DataAccess.Test
             List<DataState> states;
             try
             {
-                using (var context = new DataContext(_connection, false))
+                using (var context = new DataContext(STOCKDATA))
                 {
                     states = context.LoadFullIndicatorState(Profit.Name);
                 }
@@ -186,7 +184,7 @@ namespace StockWatch.DataAccess.Test
             List<ComputedEod> computed;
             try
             {
-                using (var context = new DataContext(_connection, false))
+                using (var context = new DataContext(STOCKDATA))
                 {
                     computed = context.LoadComputedEod().ToList();
                 }
@@ -263,7 +261,7 @@ namespace StockWatch.DataAccess.Test
 
             try
             {
-                using (var context = new DataContext(_connection, false))
+                using (var context = new DataContext(STOCKDATA))
                 {
                     foreach (IndicatorDTO i in indicators)
                     {

@@ -1,6 +1,7 @@
 ﻿using StockWatch.DataAccess;
 using StockWatch.Entities.Complex;
 using StockWatch.Entities.Table;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,9 +16,10 @@ namespace StockWatch.DataAccess.Repositories
 		}
 
 		#region IMonitorRepository implementation
-		public IEnumerable<MonitorObject> MonitorObjects {
+
+		public IEnumerable<Stock> MonitorObjects {
 			get {
-				return _context.MonitorObjects;
+				throw new NotImplementedException();
 			}
 		}
 

@@ -3,12 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StockWatch.Entities.Table
 {
-	[Table("Company")]
 	public class Company 
 	{
-		[Key, Column(Order = 0), MaxLength(16)]
 		public string Symbol { get; set; }
-		[Key, Column(Order = 1), MaxLength(16)]
 		public string Exchange { get; set; }
 		public string Name { get; set; }
 		public float LastSale { get; set; }

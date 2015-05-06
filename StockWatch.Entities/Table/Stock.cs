@@ -4,15 +4,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StockWatch.Entities.Table
 {
-	[Table("MonitorObject")]
-	public class MonitorObject
+	public class Stock
 	{
-		[Key]
 		public string Symbol { get; set; }
 
 		public bool InPossession { get; set; }
 
+        public bool InIDB50 { get; set; }
+
 		public DateTime SendAlertAfter { get; set; }
+
+        public int Data { get; set; }
 
 	}
 }

@@ -14,7 +14,7 @@ namespace StockWatch.DataAccess.Test
     [TestClass]
     public class StockDataContextTableTest
     {
-        private SqlConnection _connection;
+        private const string STOCKDATA = "StockData";
 
         private List<Eod> _eods = new List<Eod> {
 			new Eod { Symbol = "A1",
@@ -79,26 +79,22 @@ namespace StockWatch.DataAccess.Test
         public void Init()
         {
             DataContextInit.RegisterContextInitializers();
-            const string connectionString = @"Server=.\SQL2012;Database=StockWatch-Test;Trusted_Connection=True;";
-            _connection = new SqlConnection(connectionString);
-            using (var context = new DataContext(_connection, false))
+            using (var context = new DataContext(STOCKDATA))
             {
                 context.Database.Initialize(true);//.CreateIfNotExists ();
             }
-            _connection.Open();
         }
 
         [TestCleanup]
         public void Cleanup()
         {
-            using (var context = new DataContext(_connection, false))
+            using (var context = new DataContext(STOCKDATA))
             {
                 context.Database.ExecuteSqlCommand(
-                    string.Format("delete from {0}", EntityHelper.GetTableName(typeof(Eod))));
+                    string.Format("delete from Eod"));
                 context.Database.ExecuteSqlCommand(
-                    string.Format("delete from {0}", EntityHelper.GetTableName(typeof(Company))));
+                    string.Format("delete from Company"));
             }
-            _connection.Dispose();
         }
 
         [TestMethod]
@@ -107,7 +103,7 @@ namespace StockWatch.DataAccess.Test
             try
             {
                 // DbConnection that is already opened
-                using (var context = new DataContext(_connection, false))
+                using (var context = new DataContext(STOCKDATA))
                 {
                     // Interception/SQL logging
                     context.Database.Log = (string message) =>
@@ -124,7 +120,7 @@ namespace StockWatch.DataAccess.Test
                 throw;
             }
 
-            using (var context = new DataContext(_connection, false))
+            using (var context = new DataContext(STOCKDATA))
             {
                 Assert.IsTrue(context.Eods.Count() > 0);
             }
@@ -136,7 +132,7 @@ namespace StockWatch.DataAccess.Test
             try
             {
                 // DbConnection that is already opened
-                using (var context = new DataContext(_connection, false))
+                using (var context = new DataContext(STOCKDATA))
                 {
                     // Interception/SQL logging
                     context.Database.Log = (string message) =>
@@ -155,7 +151,7 @@ namespace StockWatch.DataAccess.Test
             }
 
 
-            using (var context = new DataContext(_connection, false))
+            using (var context = new DataContext(STOCKDATA))
             {
                 Assert.IsTrue(context.Companies.Count() > 0);
             }
@@ -180,7 +176,7 @@ namespace StockWatch.DataAccess.Test
 
             try
             {
-                using (var context = new DataContext(_connection, false))
+                using (var context = new DataContext(STOCKDATA))
                 {
                     before = context.Eods.Count();
                     int rows = context.LoadData(file, EntityHelper.GetTableName(typeof(Eod)));
@@ -217,7 +213,7 @@ namespace StockWatch.DataAccess.Test
 
             try
             {
-                using (var context = new DataContext(_connection, false))
+                using (var context = new DataContext(STOCKDATA))
                 {
                     before = context.Companies.Count();
                     int rows = context.LoadData(file, EntityHelper.GetTableName(typeof(Company)));

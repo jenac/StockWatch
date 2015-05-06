@@ -35,13 +35,23 @@ PRIMARY KEY CLUSTERED
 ))", 
 @"IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Research'))
 CREATE TABLE [dbo].[Research](
-  [Name] [nvarchar](50) NOT NULL,
+    [Name] [nvarchar](50) NOT NULL,
 	[Type] [nvarchar](50) NOT NULL,
 	[Data] [xml] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[Name]
-))"
+))",
+@"IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Stock'))
+CREATE TABLE [dbo].[Stock](
+    [Symbol] [nvarchar](16) NOT NULL,
+	[InPossession] [bit] NOT NULL,
+    [InIDB50] [bit] NOT NULL,
+	[Data] [xml] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Symbol]
+))",
 			};
 
 			List<string> viewStmts = new List<string> {

@@ -4,12 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StockWatch.Entities.Table
 {
-	[Table("Eod")]
 	public class Eod 
 	{
-		[Key, Column(Order = 0), MaxLength(16)]
 		public string Symbol { get; set; }
-		[Key, Column(Order = 1)]
 		public DateTime Date { get; set; }
 		public double Open { get; set; }
 		public double High { get; set; }
