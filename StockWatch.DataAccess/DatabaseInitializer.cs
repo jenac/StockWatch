@@ -130,6 +130,15 @@ BEGIN
 		VALUES (@Symbol, @Name, @Date, @Data)
 	END;
 END",
+@"IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[Proc_AllWatchedStocks_Get]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE [dbo].[Proc_AllWatchedStocks_Get]",
+@"CREATE PROCEDURE [dbo].[Proc_AllWatchedStocks_Get] 
+(
+)
+AS 
+BEGIN
+	SELECT [Symbol], [InPossession], [InIDB50],	[Data] FROM dbo.Stock
+END",
 			};
 
 			foreach (string sql in tableStmts) {

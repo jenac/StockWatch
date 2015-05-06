@@ -19,7 +19,7 @@ namespace StockWatch.DataService.Test
 			throw new NotImplementedException ();
 		}
 
-		public IEnumerable<Stock> MonitorObjects {
+		public IEnumerable<Stock> Stocks {
 			get {
 				throw new NotImplementedException ();
 			}

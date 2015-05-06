@@ -17,9 +17,9 @@ namespace StockWatch.DataAccess.Repositories
 
 		#region IMonitorRepository implementation
 
-		public IEnumerable<Stock> MonitorObjects {
+		public IEnumerable<Stock> Stocks {
 			get {
-				throw new NotImplementedException();
+                return _context.LoadAllStocks();
 			}
 		}
 

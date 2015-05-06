@@ -91,6 +91,11 @@ ROWTERMINATOR = '\n'
 			return null;
 			//return _objectCtx.ExecuteStoreQuery<RSIPredict> ("CALL Proc_Indicator_Get_RSIPredict ({0})", symbol);
 		}
+
+        public IEnumerable<Stock> LoadAllStocks()
+        {
+            return _objectCtx.ExecuteStoreQuery<Stock>("EXEC Proc_AllWatchedStocks_Get");
+        }
 		#endregion
 	}
 }

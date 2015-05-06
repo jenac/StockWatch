@@ -21,7 +21,7 @@ namespace StockWatch.DataService.Tasks
 
 		public List<MonitorAlert> Scan ()
 		{
-			List<Stock> toProcess = _monitorRepo.MonitorObjects.ToList ();
+			List<Stock> toProcess = _monitorRepo.Stocks.ToList ();
 			return toProcess
 				.Where (s => s.InPossession || s.SendAlertAfter < DateTime.Now)
 				.Select (s => ScanObject (s))
