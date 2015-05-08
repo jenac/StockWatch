@@ -12,7 +12,7 @@ namespace StockWatch.DataService.Workers
 	{
 		private readonly DataRepository _dataRepo;
 		private readonly AnalyseRepository _analyseRepo;
-		private readonly List<IDataTask> _tasks;
+		private readonly List<ITask> _tasks;
 		private int _count = 0;
 		public DataWorker (DataContext context)
 		{
@@ -20,7 +20,7 @@ namespace StockWatch.DataService.Workers
 				throw new ArgumentNullException ();
 			_dataRepo = new DataRepository (context);
 			_analyseRepo = new AnalyseRepository (context);
-			_tasks = new List<IDataTask> {
+			_tasks = new List<ITask> {
 				new UpdateCompanyTask(_dataRepo),
 				new UpdateEodTask(_dataRepo),
 				new AnalyzeProfitTask(_analyseRepo),
@@ -39,7 +39,7 @@ namespace StockWatch.DataService.Workers
 		{
 			Logger.Instance.InfoFormat("Data Worker is on duty: {0}", _count);
 			if (_count == 0) {
-				foreach (IDataTask task in _tasks) {
+				foreach (ITask task in _tasks) {
 					Logger.Instance.InfoFormat ("Executing {0} task.", task.GetType());
 					Stopwatch sw = new Stopwatch ();
 					sw.Start ();

@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,8 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Senders\EmailAlertSender.cs" />
-    <Compile Include="Senders\IAlertSender.cs" />
     <Compile Include="ServiceHelper.cs" />
     <Compile Include="ServiceRunner.cs" />
     <Compile Include="Tasks\AnalyzeADXTask.cs" />
@@ -65,8 +64,7 @@
     <Compile Include="Tasks\AnalyzeRSIRangeTask.cs" />
     <Compile Include="Tasks\AnalyzeRSITask.cs" />
     <Compile Include="Tasks\AnalyzeSMATask.cs" />
-    <Compile Include="Tasks\IDataTask.cs" />
-    <Compile Include="Tasks\IMonitorTask.cs" />
+    <Compile Include="Tasks\ITask.cs" />
     <Compile Include="Tasks\MonitorRSITask.cs" />
     <Compile Include="Tasks\UpdateCompanyTask.cs" />
     <Compile Include="Tasks\UpdateEodTask.cs" />
@@ -74,6 +72,7 @@
     <Compile Include="Workers\DataWorker.cs" />
     <Compile Include="Workers\IServiceWorker.cs" />
     <Compile Include="Workers\MonitorWorker.cs" />
+    <Compile Include="Workers\WorkerSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StockWatch.Algorithm\StockWatch.Algorithm.csproj">
@@ -100,6 +99,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\PriceAlert.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

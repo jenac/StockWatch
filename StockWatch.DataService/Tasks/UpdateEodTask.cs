@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace StockWatch.DataService.Tasks
 {
-	public class UpdateEodTask : IDataTask
+	public class UpdateEodTask : ITask
 	{
 		private readonly IDataRepository _dataRepo;
 		public UpdateEodTask (IDataRepository dataRepo)

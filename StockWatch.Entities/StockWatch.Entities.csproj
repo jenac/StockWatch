@@ -55,7 +55,7 @@
     <Compile Include="Complex\EodParam.cs" />
     <Compile Include="Complex\GainLoss.cs" />
     <Compile Include="Complex\IndicatorDTO.cs" />
-    <Compile Include="Complex\MonitorAlert.cs" />
+    <Compile Include="Complex\PriceAlert.cs" />
     <Compile Include="Complex\Profit.cs" />
     <Compile Include="Complex\ResearchDTO.cs" />
     <Compile Include="Complex\RSI.cs" />

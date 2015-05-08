@@ -1,5 +1,4 @@
 ﻿using StockWatch.DataAccess;
-using StockWatch.DataService.Senders;
 using StockWatch.DataService.Workers;
 using StockWatch.Utility;
 using System;
@@ -12,7 +11,7 @@ namespace StockWatch.DataService
 	{
 		private readonly List<IServiceWorker> _workers;
 
-		public ServiceRunner (DataContext context, IAlertSender sender)
+		public ServiceRunner (DataContext context)
 		{
 			if (context == null)
 				throw new ArgumentException ();
@@ -20,7 +19,7 @@ namespace StockWatch.DataService
 			_workers = new List<IServiceWorker> {
 				//add more workers in future
 				new DataWorker(context),	
-				new MonitorWorker(context, sender),
+				new MonitorWorker(context),
 
 			};
 		}

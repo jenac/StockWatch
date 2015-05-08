@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StockWatch.DataService.Tasks
 {
-    public class AnalyzeDailySummaryTask : IDataTask
+    public class AnalyzeDailySummaryTask : ITask
     {
         private readonly IAnalyseRepository _analyseRepo;
         public AnalyzeDailySummaryTask(IAnalyseRepository repo)

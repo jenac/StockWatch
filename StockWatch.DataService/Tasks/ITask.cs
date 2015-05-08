@@ -2,7 +2,7 @@
 
 namespace StockWatch.DataService.Tasks
 {
-	public interface IDataTask
+	public interface ITask
 	{
 		void Execute();
 	}

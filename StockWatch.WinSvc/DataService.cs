@@ -1,6 +1,5 @@
 ﻿using StockWatch.DataAccess;
 using StockWatch.DataService;
-using StockWatch.DataService.Senders;
 using StockWatch.Utility;
 using System;
 using System.Collections.Generic;
@@ -39,7 +38,6 @@ namespace StockWatch.WinSvc
 
         public static void Execute()
         {
-            var sender = new EmailAlertSender(ConfigurationManager.AppSettings["EmailSettingFile"]);
             DataContextInit.RegisterContextInitializers();
 
             using (var context = new DataContext(STOCKDATA))
@@ -49,7 +47,7 @@ namespace StockWatch.WinSvc
             
             using (var context = new DataContext(STOCKDATA))
             {
-                var runner = new ServiceRunner(context, sender);
+                var runner = new ServiceRunner(context);
                 runner.Run();
             }
 

@@ -4,10 +4,11 @@ using System.Xml.Linq;
 using System.Net.Mail;
 using System.Net;
 using StockWatch.Utility;
+using System.Collections.Generic;
 
 namespace StockWatch.Internet
 {
-	public class EmailSender
+	public class EmailServiceSender
 	{
 		private readonly string _server;
 		private readonly int _port;
@@ -32,7 +33,7 @@ namespace StockWatch.Internet
             </Account>
         </EmailSetting>
         */
-		public EmailSender(string settingFile)
+		public EmailServiceSender(string settingFile)
 		{
 			XElement elem = XElement.Load(settingFile);
 			_server = elem.Element(_ACCOUNT).Element(_SERVER).Value;
@@ -41,7 +42,7 @@ namespace StockWatch.Internet
 			_pass = elem.Element(_ACCOUNT).Element(_PASS).Value;
 
 		}
-		public void SendEmail(string to, string subject, string body)
+		public void SendEmail(string to, List<string> cc, string subject, string body)
 		{
 			var fromAddress = new MailAddress(_user);
 			var toAddress = new MailAddress(to);
@@ -55,11 +56,15 @@ namespace StockWatch.Internet
 			})
 			{
 				using (var message = new MailMessage(fromAddress, toAddress) {
-					Subject = subject,
+                    Subject = subject,
 					Body = body,
 					IsBodyHtml = true,
 				})
 				{
+                    foreach(string address in cc)
+                    {
+                        message.CC.Add(address);
+                    }
 					smtp.Send(message);
 				}
 			}

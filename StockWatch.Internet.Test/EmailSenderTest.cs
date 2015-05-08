@@ -17,8 +17,9 @@ namespace StockWatch.Internet.Test
         {
             try
             {
-                EmailSender es = new EmailSender(@"C:\Users\Jen\OneDrive\StockWatch\EmailSetting.xml");
+                EmailServiceSender es = new EmailServiceSender(@"C:\Users\Jen\OneDrive\StockWatch\EmailSetting.xml");
                 es.SendEmail("lihe.chen@gmail.com",
+                    new List<string>(),
                     "EmailSenderTest",
                     "Sent from unit test");
             }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StockWatch.DataService.Tasks
 {
-    public class AnalyzeADXTask : IDataTask
+    public class AnalyzeADXTask : ITask
     {
         private readonly IAnalyseRepository _analyseRepo;
         public AnalyzeADXTask(IAnalyseRepository repo)

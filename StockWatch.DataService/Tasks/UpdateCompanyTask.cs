@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace StockWatch.DataService.Tasks
 {
-	public class UpdateCompanyTask : IDataTask
+	public class UpdateCompanyTask : ITask
 	{
 		private static readonly List<string> _EXCHANGES = new List<string>
 		{

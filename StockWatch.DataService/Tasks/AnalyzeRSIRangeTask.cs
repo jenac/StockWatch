@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace StockWatch.DataService.Tasks
 {
-	public class AnalyzeRSIRangeTask : IDataTask
+	public class AnalyzeRSIRangeTask : ITask
 	{
 		private readonly IAnalyseRepository _analyseRepo;
 
