@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace StockWatch.DataService.Tasks
 {
-	public class AnalyzeGainLossTask : ITask
+    public class AnalyzeGainLossTask : BaseAnalyzeTask
 	{
 		private readonly IAnalyseRepository _analyseRepo;
 		public AnalyzeGainLossTask (IAnalyseRepository repo)
@@ -15,16 +15,11 @@ namespace StockWatch.DataService.Tasks
 			_analyseRepo = repo;
 		}
 
-		#region IServiceTask implementation
-
-		public void Execute ()
+		public override void Execute()
 		{
 			List<DataState> toAnalyze = _analyseRepo.LoadFullIndicatorStateByName (GainLoss.Name);
 			toAnalyze.ForEach(s => _analyseRepo.SaveIndicator(AnalyzeData(s)));
 		}
-
-		#endregion
-
 
         public Indicator AnalyzeData(DataState state)
         {

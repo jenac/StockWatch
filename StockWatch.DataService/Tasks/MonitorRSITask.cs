@@ -1,5 +1,4 @@
 ﻿using StockWatch.DataAccess.Repositories;
-using StockWatch.DataService.Workers;
 using StockWatch.Entities.Complex;
 using StockWatch.Entities.Table;
 using StockWatch.Internet;
@@ -11,7 +10,7 @@ using System.Text;
 
 namespace StockWatch.DataService.Tasks
 {
-	public class MonitorRSITask : ITask
+	public class MonitorRSITask : BaseMonitorTask
 	{
 		private readonly IMonitorRepository _monitorRepo;
         
@@ -19,7 +18,7 @@ namespace StockWatch.DataService.Tasks
 		{
 			_monitorRepo = repo;
 		}
-        public void Execute()
+        public override void Execute()
         {
             List<Stock> toProcess = _monitorRepo.Stocks.ToList();
             List<PriceAlert> alerts = toProcess
@@ -29,7 +28,7 @@ namespace StockWatch.DataService.Tasks
                 .ToList();
             if (alerts != null && alerts.Count > 0)
             {
-                var sender = new EmailServiceSender(WorkerSettings.Instance.EmailSettingFile);
+                var sender = new EmailServiceSender(ServiceSettings.Instance.EmailSettingFile);
                 sender.SendEmail("lihe.chen@gmail.com", 
                     new List<string>(), 
                     "StockWatch Monitor Alert",

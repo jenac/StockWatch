@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace StockWatch.DataService.Tasks
 {
-	public class UpdateCompanyTask : ITask
+	public class UpdateCompanyTask : BaseUpdateTask
 	{
 		private static readonly List<string> _EXCHANGES = new List<string>
 		{
@@ -23,7 +23,7 @@ namespace StockWatch.DataService.Tasks
 
 		#region IServiceTask implementation
 
-		public void Execute ()
+		public override void Execute ()
 		{
 			List<Company> companies = ReadCompaniesFromInternet();
 			List<string> existingCompanySymbols = _dataRepo.CompanySymbols.ToList();

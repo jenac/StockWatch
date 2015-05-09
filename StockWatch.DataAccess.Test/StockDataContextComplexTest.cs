@@ -254,6 +254,9 @@ namespace StockWatch.DataAccess.Test
 				new SMA {
 					Symbol = "SPY",
 					Date = DateTime.Today,
+                    SMA5 = 5,
+                    SMA10 = 10,
+                    SMA20 = 20,
 					SMA50 = 50, 
 					SMA200 = 200
 				}, 

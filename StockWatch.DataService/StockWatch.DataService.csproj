@@ -64,15 +64,16 @@
     <Compile Include="Tasks\AnalyzeRSIRangeTask.cs" />
     <Compile Include="Tasks\AnalyzeRSITask.cs" />
     <Compile Include="Tasks\AnalyzeSMATask.cs" />
+    <Compile Include="Tasks\BaseUpdateTask.cs" />
+    <Compile Include="Tasks\BaseAnalyzeTask.cs" />
+    <Compile Include="Tasks\BaseMonitorTask.cs" />
     <Compile Include="Tasks\ITask.cs" />
     <Compile Include="Tasks\MonitorRSITask.cs" />
     <Compile Include="Tasks\UpdateCompanyTask.cs" />
     <Compile Include="Tasks\UpdateEodTask.cs" />
     <Compile Include="Tasks\UpdateHelper.cs" />
-    <Compile Include="Workers\DataWorker.cs" />
-    <Compile Include="Workers\IServiceWorker.cs" />
-    <Compile Include="Workers\MonitorWorker.cs" />
-    <Compile Include="Workers\WorkerSettings.cs" />
+    <Compile Include="ServiceWorker.cs" />
+    <Compile Include="ServiceSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StockWatch.Algorithm\StockWatch.Algorithm.csproj">
@@ -104,6 +105,9 @@
     <Content Include="Templates\PriceAlert.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Workers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

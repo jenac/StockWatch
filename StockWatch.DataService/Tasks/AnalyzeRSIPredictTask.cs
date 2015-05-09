@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace StockWatch.DataService.Tasks
 {
-	public class AnalyzeRSIPredictTask : ITask
+    public class AnalyzeRSIPredictTask : BaseAnalyzeTask
 	{
 		private readonly IAnalyseRepository _analyseRepo;
 
@@ -16,15 +16,11 @@ namespace StockWatch.DataService.Tasks
 			_analyseRepo = repo;
 		}
 
-		#region IServiceTask implementation
-
-		public void Execute ()
+		public override void Execute()
 		{
 			List<DataState> toProcess = _analyseRepo.LoadFullIndicatorStateByName (RSIPredict.Name);
 			toProcess.ForEach (s => _analyseRepo.SaveIndicator (AnalyzeData (s)));
 		}
-
-		#endregion
 
 		public Indicator AnalyzeData (DataState state)
 		{

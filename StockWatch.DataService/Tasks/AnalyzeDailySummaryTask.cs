@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace StockWatch.DataService.Tasks
 {
-    public class AnalyzeDailySummaryTask : ITask
+    public class AnalyzeDailySummaryTask : BaseAnalyzeTask
     {
         private readonly IAnalyseRepository _analyseRepo;
         public AnalyzeDailySummaryTask(IAnalyseRepository repo)
 		{
 			_analyseRepo = repo;
 		}
-        public void Execute()
+        public override void Execute()
         {
             /*
             List<DataState> toProcess = _analyseRepo.LoadFullIndicatorStateByName(ADX.Name);

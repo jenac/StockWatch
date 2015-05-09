@@ -156,7 +156,7 @@ END",
 AS 
 BEGIN
 	WITH CTE AS(
-		SELECT Symbol, MAX([Date]) FROM DailySummary GROUP BY Symbol
+		SELECT Symbol, MAX([Date]) AS [Date] FROM DailySummary GROUP BY Symbol
 	)
 	SELECT Vw_Symbols.Symbol, Vw_Symbols.Last FROM CTE
 		RIGHT JOIN Vw_Symbols

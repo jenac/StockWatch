@@ -1,5 +1,4 @@
 ﻿using StockWatch.DataAccess;
-using StockWatch.DataService.Workers;
 using StockWatch.Utility;
 using System;
 using System.Collections.Generic;
@@ -7,41 +6,34 @@ using System.Threading;
 
 namespace StockWatch.DataService
 {
-	public class ServiceRunner
-	{
-		private readonly List<IServiceWorker> _workers;
+    public class ServiceRunner
+    {
+        private readonly ServiceWorker _worker;
 
-		public ServiceRunner (DataContext context)
-		{
-			if (context == null)
-				throw new ArgumentException ();
+        public ServiceRunner(DataContext context)
+        {
+            if (context == null)
+                throw new ArgumentException();
+            _worker = new ServiceWorker(context);
+        }
 
-			_workers = new List<IServiceWorker> {
-				//add more workers in future
-				new DataWorker(context),	
-				new MonitorWorker(context),
+        public void Run()
+        {
+            while (true)
+            {
+                try
+                {
+                    _worker.DoWork();
+                }
+                catch (Exception e)
+                {
+                    Logger.Instance.Error(e.Message);
+                    Logger.Instance.Error(e.StackTrace);
+                }
 
-			};
-		}
-
-		public void Run()
-		{
-			while(true)
-			{
-				foreach (IServiceWorker worker in _workers) {
-					if (worker.OnDuty) {
-						try {
-							worker.DoWork ();
-						}
-						catch(Exception e) {
-							Logger.Instance.Error (e.Message);
-							Logger.Instance.Error (e.StackTrace);
-						}
-					}
-				}
-				Thread.Sleep (1000 * 5 * 60);
-			}
-		}
-	}
+                Thread.Sleep(1000 * 5 * 60);
+            }
+        }
+    }
 }
 

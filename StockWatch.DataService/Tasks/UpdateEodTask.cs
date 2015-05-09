@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace StockWatch.DataService.Tasks
 {
-	public class UpdateEodTask : ITask
+	public class UpdateEodTask : BaseUpdateTask
 	{
 		private readonly IDataRepository _dataRepo;
 		public UpdateEodTask (IDataRepository dataRepo)
@@ -18,7 +18,7 @@ namespace StockWatch.DataService.Tasks
 
 
 		#region IServiceTask implementation
-		public void Execute ()
+		public override void Execute ()
 		{
 			DateTime? lastTradeDate = InternetReader.GetLastTradeDate();
 			if (!lastTradeDate.HasValue)
