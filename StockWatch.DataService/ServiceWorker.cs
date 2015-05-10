@@ -28,8 +28,7 @@ namespace StockWatch.DataService
             _monitorRepo = new MonitorRepository(context);
             _summaryRepo = new SummaryRepository(context);
             _tasks = new List<ITask> {
-                new DailySummaryTask(_summaryRepo),
-				new UpdateCompanyTask(_dataRepo),
+                new UpdateCompanyTask(_dataRepo),
 				new UpdateEodTask(_dataRepo),
 				new AnalyzeProfitTask(_analyseRepo),
 				new AnalyzeRSITask(_analyseRepo),
@@ -39,6 +38,7 @@ namespace StockWatch.DataService
 				new AnalyzeGainLossTask(_analyseRepo),
                 new AnalyzeADXTask(_analyseRepo),
                 new MonitorRSITask(_monitorRepo),
+                new DailySummaryTask(_summaryRepo),
 			};
         }
 
