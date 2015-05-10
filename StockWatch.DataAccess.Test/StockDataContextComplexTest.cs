@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StockWatch.Entities.Complex;
+using StockWatch.Entities.Complex.Indicators;
 using StockWatch.Entities.Helper;
 using StockWatch.Entities.Table;
 using StockWatch.Utility;

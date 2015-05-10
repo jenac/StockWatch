@@ -63,6 +63,18 @@ PRIMARY KEY CLUSTERED
 	[Symbol] ASC,
     [Date] ASC
 ))",
+@"IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'EmailArchive'))
+CREATE TABLE [dbo].[EmailArchive](
+    [Name] [nvarchar](255) NOT NULL,
+	[DateSent] [datetime] NOT NULL,
+    [Html] [text] NULL
+PRIMARY KEY CLUSTERED 
+(
+	[Name] ASC,
+    [DateSent] ASC
+))",
+
+   
         };
 
 			List<string> viewStmts = new List<string> {
@@ -185,7 +197,114 @@ BEGIN
 		VALUES (@Symbol, @Date, @Version, @Data)
 	END;
 END",
+@"IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[Proc_Eod_GetLast]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE [dbo].[Proc_Eod_GetLast]",
+@"CREATE PROCEDURE [dbo].[Proc_Eod_GetLast] 
+(
+	@Symbol NVARCHAR(16)
+)
+AS 
+BEGIN
+	SELECT TOP 1 [Symbol]
+      ,[Date]
+      ,[Open]
+      ,[High]
+      ,[Low]
+      ,[Close]
+      ,[Volume]
+  FROM [dbo].[Eod] 
+    WHERE Symbol = @Symbol
+    ORDER BY Date DESC
+END",
+@"IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[Proc_DailySummary_GetLast]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE [dbo].[Proc_DailySummary_GetLast]",
+@"CREATE PROCEDURE [dbo].[Proc_DailySummary_GetLast] 
+(
+	@Symbol NVARCHAR(16)
+)
+AS 
+BEGIN
+	SELECT TOP 1 [Symbol]
+      ,[Date]
+      ,[Version]
+      ,[Data]
+  FROM [dbo].[DailySummary]
+    WHERE Symbol = @Symbol
+    ORDER BY Date DESC
+END",    
+@"IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[Proc_Indicator_Get]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE [dbo].[Proc_Indicator_Get]",
+@"CREATE PROCEDURE [dbo].[Proc_Indicator_Get] 
+(
+	@Symbol NVARCHAR(16)
+    , @Name NVARCHAR(50)
+	, @Date DATETIME
+)
+AS 
+BEGIN
+	SELECT [Symbol]
+      ,[Name]
+      ,[Date]
+      ,[Data]
+  FROM [dbo].[Indicator] 
+    WHERE Symbol = @Symbol 
+        AND [Name] = @Name
+        AND [Date] = @Date
+END",        
+@"IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[Proc_DailySummary_Get]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE [dbo].[Proc_DailySummary_Get]",
+@"CREATE PROCEDURE [dbo].[Proc_DailySummary_Get] 
+(
+	@Symbol NVARCHAR(16)
+	, @Date DATETIME
+)
+AS 
+BEGIN
+	SELECT [Symbol]
+      ,[Date]
+      ,[Version]
+      ,[Data]
+  FROM [dbo].[DailySummary]
+    WHERE Symbol = @Symbol 
+        AND [Date] = @Date
+END",            
 
+@"IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[Proc_EmailArchive_Get]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE [dbo].[Proc_EmailArchive_Get]",
+@"CREATE PROCEDURE [dbo].[Proc_EmailArchive_Get] 
+(
+	@Name NVARCHAR(255)
+	, @Date DATETIME
+)
+AS 
+BEGIN
+	SELECT [Name]
+      ,[DateSent]
+      ,[Html]
+  FROM [dbo].[EmailArchive]
+    WHERE [Name] = @Name
+        AND [DateSent] = @Date
+END",            
+@"IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[Proc_EmailArchive_Upsert]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+    DROP PROCEDURE [dbo].[Proc_EmailArchive_Upsert]",
+@"CREATE PROCEDURE [dbo].[Proc_EmailArchive_Upsert] 
+(
+	@Name NVARCHAR(255)
+	, @Date DATETIME
+    , @Html TEXT
+)
+AS 
+BEGIN
+    UPDATE [EmailArchive]
+		SET [Html] = @Html
+        WHERE [DateSent] = @Date AND [Name] = @Name
+	IF @@ROWCOUNT = 0 
+	BEGIN
+		INSERT INTO [EmailArchive] ([Name], [DateSent], [Html])
+		VALUES (@Name, @Date, @Html)
+	END
+END",            
+    
     
 
 			};

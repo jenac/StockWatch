@@ -6,12 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using StockWatch.Utility;
+using StockWatch.Entities.Helper;
 
-namespace StockWatch.Entities.Complex
+namespace StockWatch.Entities.Complex.Indicators
 {
     public class ADX : IndicatorDTO
     {
-        public static string Name = "ADX";
+        public const string Name = "ADX";
+        
         public double ADX14 { get; set; }
         public override Indicator ToIndicator()
         {
@@ -20,10 +22,7 @@ namespace StockWatch.Entities.Complex
                 Symbol = this.Symbol,
                 Name = ADX.Name,
                 Date = this.Date,
-                Data = (new XElement("Data",
-                    new XElement("ADX14", this.ADX14.MoneyFormat())
-                )
-                ).ToString()
+                Data = EntityHelper.SerializeToXml<ADX>(this)
             };
         }
     }

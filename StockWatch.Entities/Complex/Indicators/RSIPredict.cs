@@ -1,8 +1,9 @@
-﻿using StockWatch.Entities.Table;
+﻿using StockWatch.Entities.Helper;
+using StockWatch.Entities.Table;
 using StockWatch.Utility;
 using System.Xml.Linq;
 
-namespace StockWatch.Entities.Complex
+namespace StockWatch.Entities.Complex.Indicators
 {
 	public class RSIPredict : IndicatorDTO
 	{
@@ -18,10 +19,7 @@ namespace StockWatch.Entities.Complex
 				Symbol = this.Symbol,
 				Name = RSIPredict.Name,
 				Date = this.Date,
-				Data = (new XElement("Data",
-					new XElement("PredictRsi30Price", this.PredictRsi30Price.MoneyFormat()),
-					new XElement("PredictRsi50Price", this.PredictRsi50Price.MoneyFormat()),
-					new XElement("PredictRsi70Price", this.PredictRsi70Price.MoneyFormat()))).ToString()
+                Data = EntityHelper.SerializeToXml<RSIPredict>(this)
 			};
 		}
 	}

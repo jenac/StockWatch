@@ -1,5 +1,6 @@
 ﻿using StockWatch.DataAccess.Repositories;
 using StockWatch.Entities.Complex;
+using StockWatch.Entities.Complex.Indicators;
 using StockWatch.Entities.Table;
 using StockWatch.Internet;
 using System;
@@ -72,8 +73,19 @@ namespace StockWatch.DataService.Tasks
 
         private string CompositePriceAlertHtml(List<PriceAlert> alerts)
         {
-            const string templateFile = @"PriceAlert.html";
-            string html = File.ReadAllText(templateFile);
+            string html = ServiceHelper.GetHtmlTemplate();
+            string css =
+@"
+.sell {
+    color: red;
+    font-size: 16px;
+}
+
+.buy {
+    color: green;
+    font-size: 16px;
+}
+";
             string style;
             StringBuilder sb = new StringBuilder();
             foreach (PriceAlert alert in alerts)
@@ -84,7 +96,8 @@ namespace StockWatch.DataService.Tasks
                     style, style, alert.Symbol, alert.Price.ToString("0.00"),
                     alert.TargetPrice.ToString("0.00"));
             }
-            return html.Replace("[PlaceHolder]", sb.ToString());
+
+            return html.Replace(ServiceHelper.CssPlaceHolder, css).Replace(ServiceHelper.ContentPlaceHolder, sb.ToString());
         }
     }
 }

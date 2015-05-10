@@ -57,16 +57,17 @@
     <Compile Include="ServiceHelper.cs" />
     <Compile Include="ServiceRunner.cs" />
     <Compile Include="Tasks\AnalyzeADXTask.cs" />
-    <Compile Include="Tasks\AnalyzeDailySummaryTask.cs" />
     <Compile Include="Tasks\AnalyzeGainLossTask.cs" />
     <Compile Include="Tasks\AnalyzeProfitTask.cs" />
     <Compile Include="Tasks\AnalyzeRSIPredictTask.cs" />
     <Compile Include="Tasks\AnalyzeRSIRangeTask.cs" />
     <Compile Include="Tasks\AnalyzeRSITask.cs" />
     <Compile Include="Tasks\AnalyzeSMATask.cs" />
+    <Compile Include="Tasks\BaseSummaryTask.cs" />
     <Compile Include="Tasks\BaseUpdateTask.cs" />
     <Compile Include="Tasks\BaseAnalyzeTask.cs" />
     <Compile Include="Tasks\BaseMonitorTask.cs" />
+    <Compile Include="Tasks\DailySummaryTask.cs" />
     <Compile Include="Tasks\ITask.cs" />
     <Compile Include="Tasks\MonitorRSITask.cs" />
     <Compile Include="Tasks\UpdateCompanyTask.cs" />
@@ -100,11 +101,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Templates\PriceAlert.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Workers\" />

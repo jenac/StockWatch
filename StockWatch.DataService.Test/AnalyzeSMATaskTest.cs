@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StockWatch.DataService.Tasks;
 using StockWatch.Entities.Complex;
+using StockWatch.Entities.Complex.Indicators;
 using System;
 
 namespace StockWatch.DataService.Test

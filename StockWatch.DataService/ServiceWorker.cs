@@ -16,6 +16,7 @@ namespace StockWatch.DataService
         private readonly IDataRepository _dataRepo;
         private readonly IAnalyseRepository _analyseRepo;
         private readonly IMonitorRepository _monitorRepo;
+        private readonly ISummaryRepository _summaryRepo;
         private readonly List<ITask> _tasks;
         private int _count = 0;
         public ServiceWorker(DataContext context)
@@ -25,7 +26,9 @@ namespace StockWatch.DataService
             _dataRepo = new DataRepository(context);
             _analyseRepo = new AnalyseRepository(context);
             _monitorRepo = new MonitorRepository(context);
+            _summaryRepo = new SummaryRepository(context);
             _tasks = new List<ITask> {
+                new DailySummaryTask(_summaryRepo),
 				new UpdateCompanyTask(_dataRepo),
 				new UpdateEodTask(_dataRepo),
 				new AnalyzeProfitTask(_analyseRepo),

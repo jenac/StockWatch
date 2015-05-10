@@ -1,8 +1,9 @@
-﻿using StockWatch.Entities.Table;
+﻿using StockWatch.Entities.Helper;
+using StockWatch.Entities.Table;
 using StockWatch.Utility;
 using System.Xml.Linq;
 
-namespace StockWatch.Entities.Complex
+namespace StockWatch.Entities.Complex.Indicators
 {
 	public class GainLoss : IndicatorDTO
 	{
@@ -20,12 +21,7 @@ namespace StockWatch.Entities.Complex
 				Symbol = this.Symbol,
 				Name = GainLoss.Name,
 				Date = this.Date,
-				Data = (new XElement("Data",
-					new XElement("MaxContGainDays", this.MaxContGainDays),
-					new XElement("AvgContGainDays", this.AvgContGainDays.MoneyFormat()),
-					new XElement("MaxContLossDays", this.MaxContLossDays),
-					new XElement("AvgContLossDays", this.AvgContLossDays.MoneyFormat()),
-					new XElement("LastGLContDays", this.LastGLContDays))).ToString()
+                Data = EntityHelper.SerializeToXml<GainLoss>(this)
 			};
 		}
 	}

@@ -1,6 +1,7 @@
 ﻿using StockWatch.Algorithm;
 using StockWatch.DataAccess.Repositories;
 using StockWatch.Entities.Complex;
+using StockWatch.Entities.Complex.Indicators;
 using StockWatch.Entities.Table;
 using System;
 using System.Collections.Generic;

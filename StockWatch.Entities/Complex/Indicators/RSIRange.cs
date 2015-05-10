@@ -1,7 +1,8 @@
-﻿using StockWatch.Entities.Table;
+﻿using StockWatch.Entities.Helper;
+using StockWatch.Entities.Table;
 using StockWatch.Utility;
 using System.Xml.Linq;
-namespace StockWatch.Entities.Complex
+namespace StockWatch.Entities.Complex.Indicators
 {
 	public class RSIRange : IndicatorDTO
 	{
@@ -28,15 +29,7 @@ namespace StockWatch.Entities.Complex
 				Symbol = this.Symbol,
 				Name = RSIRange.Name,
 				Date = this.Date,
-				Data = (new XElement("Data",
-					new XElement("Min", this.Min.MoneyFormat()),
-					new XElement("Max", this.Max.MoneyFormat()),
-					new XElement("L5", this.L5.MoneyFormat()),
-					new XElement("H5", this.H5.MoneyFormat()),
-					new XElement("L10", this.L10.MoneyFormat()),
-					new XElement("H10", this.H10.MoneyFormat()),
-					new XElement("L15", this.L15.MoneyFormat()),
-					new XElement("H15", this.H15.MoneyFormat()))).ToString()
+                Data = EntityHelper.SerializeToXml<RSIRange>(this)
 			};
 		}
 	}

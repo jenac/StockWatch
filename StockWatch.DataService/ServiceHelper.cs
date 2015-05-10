@@ -28,6 +28,29 @@ namespace StockWatch.DataService
             return time >= begin &&
                 time <= end;
         }
+
+        public const string CssPlaceHolder = "[CssPlaceHolder]";
+        public const string ContentPlaceHolder = "[ContentPlaceHolder";
+        public static string GetHtmlTemplate()
+        {
+            return
+@"<!DOCTYPE html>
+
+<html lang=""en"" xmlns=""http://www.w3.org/1999/xhtml"">
+<head>
+    <meta charset=""utf-8"" />
+    <title></title>
+    <style>
+        [CssPlaceHolder]
+    </style>
+</head>
+
+<body>
+    [ContentPlaceHolder]
+</body>
+</html>";
+        }
+
 	}
 }
 

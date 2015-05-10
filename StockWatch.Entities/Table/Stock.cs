@@ -14,7 +14,7 @@ namespace StockWatch.Entities.Table
 
 		public DateTime SendAlertAfter { get; set; }
 
-        public int Data { get; set; }
+        public string Data { get; set; }
 
 	}
 }

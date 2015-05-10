@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StockWatch.Entities.Complex
+namespace StockWatch.Entities.Complex.Summaries
 {
     public abstract class DailySummaryDTO
     {

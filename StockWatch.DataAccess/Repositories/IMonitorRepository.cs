@@ -1,4 +1,4 @@
-﻿using StockWatch.Entities.Complex;
+﻿using StockWatch.Entities.Complex.Indicators;
 using StockWatch.Entities.Table;
 using System.Collections.Generic;
 

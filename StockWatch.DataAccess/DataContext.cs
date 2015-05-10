@@ -1,5 +1,7 @@
 ﻿using StockWatch.Entities.Complex;
+using StockWatch.Entities.Complex.Indicators;
 using StockWatch.Entities.Table;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.Entity;
@@ -88,8 +90,7 @@ ROWTERMINATOR = '\n'
 		#region Monitor
 		public IEnumerable<RSIPredict> LoadRSIPredict (string symbol)
 		{
-			return null;
-			//return _objectCtx.ExecuteStoreQuery<RSIPredict> ("CALL Proc_Indicator_Get_RSIPredict ({0})", symbol);
+            throw new NotImplementedException();
 		}
 
         public IEnumerable<Stock> LoadAllStocks()
@@ -107,6 +108,37 @@ ROWTERMINATOR = '\n'
         {
             this.Database.ExecuteSqlCommand("EXEC Proc_DailySummary_Upsert {0}, {1}, {2}, {3}",
                 value.Symbol, value.Date, value.Version, value.Data);
+        }
+
+        internal Eod GetLastEod(string symbol)
+        {
+            return _objectCtx.ExecuteStoreQuery<Eod>("EXEC Proc_Eod_GetLast {0}", symbol).FirstOrDefault();
+        }
+
+        internal DailySummary GetLastSummary(string symbol)
+        {
+            return _objectCtx.ExecuteStoreQuery<DailySummary>("EXEC Proc_DailySummary_GetLast {0}", symbol).FirstOrDefault();
+        }
+
+        internal Indicator GetIndicator(string symbol, string name, DateTime date)
+        {
+            return _objectCtx.ExecuteStoreQuery<Indicator>("EXEC Proc_Indicator_Get {0}, {1}, {2}", symbol, name, date).FirstOrDefault();
+        }
+
+        internal DailySummary GetDailySummary(string symbol, DateTime date)
+        {
+            return _objectCtx.ExecuteStoreQuery<DailySummary>("EXEC Proc_DailySummary_Get {0}, {1}", symbol, date).FirstOrDefault();
+        }
+
+        internal EmailArchive GetEmailArchive(string name, DateTime date)
+        {
+            return _objectCtx.ExecuteStoreQuery<EmailArchive>("EXEC Proc_EmailArchive_Get {0}, {1}", name, date).FirstOrDefault();
+        }
+
+        internal void SaveEmailArchive(EmailArchive value)
+        {
+            this.Database.ExecuteSqlCommand("EXEC Proc_EmailArchive_Upsert {0}, {1}, {2}",
+                value.Name, value.DateSent, value.Html);
         }
     }
 }

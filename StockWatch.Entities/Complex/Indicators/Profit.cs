@@ -1,8 +1,9 @@
-﻿using StockWatch.Entities.Table;
+﻿using StockWatch.Entities.Helper;
+using StockWatch.Entities.Table;
 using StockWatch.Utility;
 using System.Xml.Linq;
 
-namespace StockWatch.Entities.Complex
+namespace StockWatch.Entities.Complex.Indicators
 {
 	public class Profit : IndicatorDTO
 	{
@@ -20,12 +21,7 @@ namespace StockWatch.Entities.Complex
 				Symbol = this.Symbol,
 				Name = Profit.Name,
 				Date = this.Date,
-				Data = (new XElement("Data",
-					new XElement("R20Day", this.R20Day.MoneyFormat()),
-					new XElement("R50Day", this.R50Day.MoneyFormat()),
-					new XElement("R100Day", this.R100Day.MoneyFormat()),
-					new XElement("R150Day", this.R150Day.MoneyFormat()),
-					new XElement("R200Day", this.R200Day.MoneyFormat()))).ToString()
+                Data = EntityHelper.SerializeToXml<Profit>(this)
 			};
 		}
 	}

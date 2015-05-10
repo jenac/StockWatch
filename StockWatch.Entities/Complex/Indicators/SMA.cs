@@ -1,8 +1,9 @@
-﻿using StockWatch.Entities.Table;
+﻿using StockWatch.Entities.Helper;
+using StockWatch.Entities.Table;
 using StockWatch.Utility;
 using System.Xml.Linq;
 
-namespace StockWatch.Entities.Complex
+namespace StockWatch.Entities.Complex.Indicators
 {
 	public class SMA : IndicatorDTO
 	{
@@ -21,12 +22,7 @@ namespace StockWatch.Entities.Complex
 				Symbol = this.Symbol,
 				Name = SMA.Name,
 				Date = this.Date,
-				Data = (new XElement("Data",
-                    new XElement("SMA5", this.SMA5.MoneyFormat()),
-                    new XElement("SMA10", this.SMA10.MoneyFormat()),
-                    new XElement("SMA20", this.SMA20.MoneyFormat()),
-					new XElement("SMA50", this.SMA50.MoneyFormat()),
-					new XElement("SMA200", this.SMA200.MoneyFormat()))).ToString()
+                Data = EntityHelper.SerializeToXml<SMA>(this)
 			};
 		}
 	}
