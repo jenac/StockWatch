@@ -44,7 +44,7 @@ namespace StockWatch.DataService.Tasks
                 var sender = new EmailServiceSender(ServiceSettings.Instance.EmailSettingFile);
                 var html = CompositeDailySummaryHtml(reportList);
                 sender.SendEmail("lihe.chen@gmail.com",
-                    new List<string>(),
+                    ServiceSettings.Instance.EmalCc,
                     "StockWatch Daily Summary",
                     html);
                 _summaryRepository.SaveEmailArchive(
@@ -105,15 +105,22 @@ namespace StockWatch.DataService.Tasks
             string html = ServiceHelper.GetHtmlTemplate();
             string css =
 @"
-.sell {
-    color: red;
-    font-size: 16px;
+th {
+	background-color: #95d0fc;
 }
 
-.buy {
-    color: green;
-    font-size: 16px;
+td {
+	padding-left: 10px;
+	padding-right: 10px;
 }
+
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}  
+
+.number {
+	text-align: right;
+}
+
 ";
             
             StringBuilder sb = new StringBuilder();
@@ -126,21 +133,21 @@ namespace StockWatch.DataService.Tasks
             sb.AppendLine("<th>SMA (10)</th>");
             sb.AppendLine("<th>SMA (20)</th>");
             sb.AppendLine("<th>RSI (14)</th>"); 
-            sb.AppendLine("<th>Price Expected for RSI = 30</th>"); 
-            sb.AppendLine("<th>Price Expected for RSI = 70</th>"); 
+            sb.AppendLine("<th>Price@RSI=30</th>"); 
+            sb.AppendLine("<th>Price@RSI=70</th>"); 
             sb.AppendLine("</tr>"); 
             foreach (var daily in dailys)
             {
                 sb.AppendLine("<tr>");
                 sb.AppendFormat("<td>{0}</td>", daily.Symbol);
                 sb.AppendFormat("<td>{0}</td>", daily.Date.ToString("yyyy-MM-dd"));
-                sb.AppendFormat("<th>{0}</th>", daily.ADX14.MoneyFormat());
-                sb.AppendFormat("<td>{0}</td>", daily.SMAShortTerm.MoneyFormat());
-                sb.AppendFormat("<td>{0}</td>", daily.SMAMidTerm.MoneyFormat());
-                sb.AppendFormat("<td>{0}</td>", daily.SMAShortTerm.MoneyFormat());
-                sb.AppendFormat("<td>{0}</td>", daily.RSI14.MoneyFormat());
-                sb.AppendFormat("<td>{0}</td>", daily.R30Price.MoneyFormat());
-                sb.AppendFormat("<td>{0}</td>", daily.R70Price.MoneyFormat()); 
+                sb.AppendFormat("<td class='number'>{0}</td>", daily.ADX14.MoneyFormat());
+                sb.AppendFormat("<td class='number'>{0}</td>", daily.SMAShortTerm.MoneyFormat());
+                sb.AppendFormat("<td class='number'>{0}</td>", daily.SMAMidTerm.MoneyFormat());
+                sb.AppendFormat("<td class='number'>{0}</td>", daily.SMAShortTerm.MoneyFormat());
+                sb.AppendFormat("<td class='number'>{0}</td>", daily.RSI14.MoneyFormat());
+                sb.AppendFormat("<td class='number'>{0}</td>", daily.R30Price.MoneyFormat());
+                sb.AppendFormat("<td class='number'>{0}</td>", daily.R70Price.MoneyFormat()); 
             }
             sb.AppendLine("</table>");
             return html.Replace(ServiceHelper.CssPlaceHolder, css).Replace(ServiceHelper.ContentPlaceHolder, sb.ToString());

@@ -30,8 +30,8 @@ namespace StockWatch.DataService.Tasks
             if (alerts != null && alerts.Count > 0)
             {
                 var sender = new EmailServiceSender(ServiceSettings.Instance.EmailSettingFile);
-                sender.SendEmail("lihe.chen@gmail.com", 
-                    new List<string>(), 
+                sender.SendEmail("lihe.chen@gmail.com",
+                    ServiceSettings.Instance.EmalCc,
                     "StockWatch Monitor Alert",
                     CompositePriceAlertHtml(alerts));
             }

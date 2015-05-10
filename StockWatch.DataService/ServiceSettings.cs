@@ -18,10 +18,16 @@ namespace StockWatch.DataService
         }
 
         public string EmailSettingFile { get; private set; }
+        public List<string> EmalCc { get; private set; }
         
         private ServiceSettings()
         {
             this.EmailSettingFile = ConfigurationManager.AppSettings["EmailSettingFile"];
+            var cc = ConfigurationManager.AppSettings["EmailCc"];
+            if (cc != null)
+                this.EmalCc = cc.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList();
+            else 
+                this.EmalCc =  new List<string>();
         }
 
         

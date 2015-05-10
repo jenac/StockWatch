@@ -30,7 +30,7 @@ namespace StockWatch.DataService
         }
 
         public const string CssPlaceHolder = "[CssPlaceHolder]";
-        public const string ContentPlaceHolder = "[ContentPlaceHolder";
+        public const string ContentPlaceHolder = "[ContentPlaceHolder]";
         public static string GetHtmlTemplate()
         {
             return
