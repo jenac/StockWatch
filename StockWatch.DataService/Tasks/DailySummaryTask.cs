@@ -39,7 +39,7 @@ namespace StockWatch.DataService.Tasks
                 .Select(s => _summaryRepository.GetDailySummaryListForDate(s.Symbol, today))
                 .Where(d => d != null)
                 .ToList();
-            if  (toReport.Count() == reportList.Count())
+            if  (toReport.Count() - reportList.Count() < 10)
             {
                 var sender = new EmailServiceSender(ServiceSettings.Instance.EmailSettingFile);
                 var html = CompositeDailySummaryHtml(reportList);

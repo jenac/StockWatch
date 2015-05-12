@@ -16,7 +16,7 @@ namespace StockWatch.DataService.Tasks
         {
             get
             {
-                return !ServiceHelper.InSummaryTime(DateTime.Now);
+                return ServiceHelper.InSummaryTime(DateTime.Now);
             }
         }
 
