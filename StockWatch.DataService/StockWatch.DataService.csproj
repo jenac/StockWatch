@@ -58,6 +58,7 @@
     <Compile Include="ServiceRunner.cs" />
     <Compile Include="Tasks\AnalyzeADXTask.cs" />
     <Compile Include="Tasks\AnalyzeGainLossTask.cs" />
+    <Compile Include="Tasks\AnalyzeMACDTask.cs" />
     <Compile Include="Tasks\AnalyzeProfitTask.cs" />
     <Compile Include="Tasks\AnalyzeRSIPredictTask.cs" />
     <Compile Include="Tasks\AnalyzeRSIRangeTask.cs" />

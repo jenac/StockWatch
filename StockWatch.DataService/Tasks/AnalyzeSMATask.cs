@@ -1,4 +1,5 @@
 ﻿using StockWatch.Algorithm;
+using StockWatch.Algorithm.Helper;
 using StockWatch.DataAccess.Repositories;
 using StockWatch.Entities.Complex;
 using StockWatch.Entities.Complex.Indicators;
@@ -37,24 +38,15 @@ namespace StockWatch.DataService.Tasks
             SMA value = new SMA();
             value.Symbol = state.Symbol;
             value.Date = state.Last.Value;
-            value.SMA5 = LastSMA(sma5Values);
-            value.SMA10 = LastSMA(sma10Values);
-            value.SMA20 = LastSMA(sma20Values);
-            value.SMA50 = LastSMA(sma50Values);
-            value.SMA200 = LastSMA(sma200Values);
+            value.SMA5 = AlgorithmHelper.GetLast(sma5Values);
+            value.SMA10 = AlgorithmHelper.GetLast(sma10Values);
+            value.SMA20 = AlgorithmHelper.GetLast(sma20Values);
+            value.SMA50 = AlgorithmHelper.GetLast(sma50Values);
+            value.SMA200 = AlgorithmHelper.GetLast(sma200Values);
 
             return value.ToIndicator();
 
         }
-
-        private double LastSMA(double[] smaValues)
-        {
-            if (smaValues.Length == 0)
-                return 0;
-            return smaValues[smaValues.Length - 1];
-        }
-
-
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using StockWatch.Algorithm.Schema;
+using StockWatch.Algorithm.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;

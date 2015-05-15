@@ -41,12 +41,17 @@ namespace StockWatch.Algorithm.Test
         }
 
         [TestMethod]
-        public void CanGetRSI()
+        public void CanGetRS()
         {
             double rs = RSICalculator.GetRS(37.77);
             Assert.IsTrue(rs.AlmostEqual(0.61));
         }
 
+        [TestMethod]
+        public void CanCalculateRSI()
+        {
+            RSICalculator.CalculateRsi(RSICalculator.Period, _shortPrices.ToArray());
+        }
 
 
     }
