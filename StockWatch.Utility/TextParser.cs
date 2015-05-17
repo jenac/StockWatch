@@ -27,7 +27,9 @@ namespace StockWatch.Utility
 
 		public static bool AlmostEqual(this double left, double right)
 		{
-			return Math.Abs(left - right) < 0.005;
+            double delta = Math.Abs(left - right);
+            double baseLine = Math.Min(Math.Abs(left), Math.Abs(right));
+			return delta/baseLine < 0.005 || delta < 0.005;
 		}
 
 		public static string Base64Encode(string plain)

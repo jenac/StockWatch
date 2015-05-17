@@ -57,6 +57,7 @@
     <Compile Include="SMACalculatorTest.cs" />
     <Compile Include="ADXCalculatorTest.cs" />
     <Compile Include="MACDCalculatorTest.cs" />
+    <Compile Include="BollingerBandsCalculatorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StockWatch.Algorithm\StockWatch.Algorithm.csproj">
