@@ -37,7 +37,7 @@ namespace StockWatch.DataService.Tasks
 				{
 					Symbol = e.Symbol,
 					//For symbol without since, we need get 10 years of data
-					Start = (e.Last.HasValue ? e.Last.Value : DateTime.Today.AddYears(-10)),
+					Start = (e.Last.HasValue ? e.Last.Value : DateTime.Today.AddYears(-30)),
 					End = lastTradeDate.Value
 				}).Where(p => p.Start < lastTradeDate.Value).ToList();
 

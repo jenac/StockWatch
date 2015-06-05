@@ -57,6 +57,7 @@
     <Compile Include="ServiceHelper.cs" />
     <Compile Include="ServiceRunner.cs" />
     <Compile Include="Tasks\AnalyzeADXTask.cs" />
+    <Compile Include="Tasks\AnalyzeBollingerBandsTask.cs" />
     <Compile Include="Tasks\AnalyzeGainLossTask.cs" />
     <Compile Include="Tasks\AnalyzeMACDTask.cs" />
     <Compile Include="Tasks\AnalyzeProfitTask.cs" />

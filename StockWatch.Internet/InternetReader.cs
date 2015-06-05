@@ -17,8 +17,12 @@ namespace StockWatch.Internet
 		private static readonly string _COMPANY_URL_FMT =
 			@"http://www.nasdaq.com/screening/companies-by-name.aspx?letter=&exchange={0}&render=download";
 
-		private static readonly string _EOD_URL_FMT =
-			@"http://www.google.com/finance/historical?q={0}&histperiod=daily&startdate={1}&enddate={2}&output=csv";
+        private static readonly string _EOD_URL_FMT =
+            @"http://real-chart.finance.yahoo.com/table.csv?s={0}&a={1}&b={2}&c={3}&d={4}&e={5}&f={6}&g=d&ignore=.csv";
+
+        //http://real-chart.finance.yahoo.com/table.csv?s=SPY&a=03&b=17&c=2015&d=04&e=17&f=2015&g=d&ignore=.csv
+			//@"http://www.google.com/finance/historical?q={0}&histperiod=daily&startdate={1}&enddate={2}&output=csv";
+        //http://finance.yahoo.com/q/hp?s=AKRX&a=07&b=2&c=1800&d=04&e=17&f=2015&g=d
 
 		//SPY is used to figure out last trade date
 		private static readonly string _INDEX_SYMBOL_FOR_LAST_TRADE = @"SPY";
@@ -93,8 +97,12 @@ namespace StockWatch.Internet
 			string csv = WebGet(
 				string.Format(_EOD_URL_FMT,
 					HttpUtility.UrlEncode(_INDEX_SYMBOL_FOR_LAST_TRADE),
-					start.ToString("yyyy-MM-dd"),
-					end.ToString("yyyy-MM-dd")));
+					(start.Month - 1).ToString("00"), 
+                    start.Day, 
+                    start.Year,
+                    (end.Month - 1).ToString("00"), 
+                    end.Day, 
+                    end.Year));
 			if (string.IsNullOrEmpty(csv))
 				return null;
 			string[] lines =
@@ -111,8 +119,12 @@ namespace StockWatch.Internet
 			string csv = WebGet(
 				string.Format(_EOD_URL_FMT,
 					HttpUtility.UrlEncode(param.Symbol),
-					param.Start.ToString("yyyy-MM-dd"),
-					param.End.ToString("yyyy-MM-dd")));
+                    (param.Start.Month - 1).ToString("00"),
+                    param.Start.Day,
+                    param.Start.Year,
+                    (param.End.Month - 1).ToString("00"),
+                    param.End.Day,
+                    param.End.Year));
 			string[] lines =
 				csv.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 			return lines

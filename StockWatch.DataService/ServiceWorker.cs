@@ -38,6 +38,7 @@ namespace StockWatch.DataService
 				new AnalyzeGainLossTask(_analyseRepo),
                 new AnalyzeADXTask(_analyseRepo),
                 new AnalyzeMACDTask(_analyseRepo),
+                new AnalyzeBollingerBandsTask(_analyseRepo),
                 new MonitorRSITask(_monitorRepo),
                 new DailySummaryTask(_summaryRepo),
 			};

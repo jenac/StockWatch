@@ -12,7 +12,7 @@ namespace StockWatch.Internet
 			if (line.StartsWith("Date", StringComparison.InvariantCultureIgnoreCase))
 				return null;
 			string[] sa = line.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-			if (sa.Count() == 6)
+			if (sa.Count() == 7)
 			{
 				return new Eod
 				{
@@ -22,7 +22,7 @@ namespace StockWatch.Internet
 					High = TextParser.ParseFloat(sa[2]),
 					Low = TextParser.ParseFloat(sa[3]),
 					Close = TextParser.ParseFloat(sa[4]),
-					Volume = TextParser.ParseDecimal(sa[5])
+					Volume = TextParser.ParseDecimal(sa[5].Replace(",", string.Empty))
 				};
 			}
 			return null;

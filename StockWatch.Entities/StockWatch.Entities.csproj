@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Complex\Indicators\ADX.cs" />
     <Compile Include="Complex\ComputedEod.cs" />
+    <Compile Include="Complex\Indicators\BollingerBands.cs" />
     <Compile Include="Complex\Indicators\MACD.cs" />
     <Compile Include="Complex\Summaries\DailySummaryDTO.cs" />
     <Compile Include="Complex\Summaries\DailyV001.cs" />
