@@ -20,11 +20,13 @@ namespace StockWatch.Internet.Test
             try
             {
                 string settingFile = Path.Combine(FileSystem.GetStcokWatchFolderOnGoogleDrive(), "EmailSetting.xml");
-                EmailServiceSender es = new EmailServiceSender(settingFile);
-                es.SendEmail("lihe.chen@gmail.com",
+                using (EmailServiceSender es = new EmailServiceSender(settingFile))
+                {
+                    es.SendEmail("lihe.chen@gmail.com",
                     new List<string>(),
                     "EmailSenderTest",
                     "Sent from unit test");
+                }
             }
             catch (Exception e)
             {

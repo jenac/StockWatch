@@ -8,12 +8,12 @@ using System.Collections.Generic;
 
 namespace StockWatch.Internet
 {
-	public class EmailServiceSender
+	public class EmailServiceSender : IDisposable
 	{
-		private readonly string _server;
-		private readonly int _port;
-		private readonly string _user;
-		private readonly string _pass;
+		private string _server;
+		private int _port;
+		private string _user;
+		private string _pass;
 
 		private const string _ACCOUNT = "Account";
 		private const string _SERVER = "Server";
@@ -70,6 +70,15 @@ namespace StockWatch.Internet
 				}
 			}
 		}
-	}
+
+        public void Dispose()
+        {
+            //Clean up email setting information
+            _server = string.Empty;
+            _port = 0;
+            _user = string.Empty;
+            _pass = string.Empty;
+        }
+    }
 }
 

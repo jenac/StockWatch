@@ -41,12 +41,14 @@ namespace StockWatch.DataService.Tasks
                 .ToList();
             if  (toReport.Count() - reportList.Count() < 10)
             {
-                var sender = new EmailServiceSender(ServiceSettings.Instance.EmailSettingFile);
                 var html = CompositeDailySummaryHtml(reportList);
-                sender.SendEmail("lihe.chen@gmail.com",
-                    ServiceSettings.Instance.EmalCc,
-                    "StockWatch Daily Summary",
-                    html);
+                using (var sender = new EmailServiceSender(ServiceSettings.Instance.EmailSettingFile))
+                {
+                    sender.SendEmail("lihe.chen@gmail.com",
+                        ServiceSettings.Instance.EmalCc,
+                        "StockWatch Daily Summary",
+                        html);
+                }
                 _summaryRepository.SaveEmailArchive(
                     new EmailArchive
                     {

@@ -29,11 +29,13 @@ namespace StockWatch.DataService.Tasks
                 .ToList();
             if (alerts != null && alerts.Count > 0)
             {
-                var sender = new EmailServiceSender(ServiceSettings.Instance.EmailSettingFile);
-                sender.SendEmail("lihe.chen@gmail.com",
-                    ServiceSettings.Instance.EmalCc,
+                using (var sender = new EmailServiceSender(ServiceSettings.Instance.EmailSettingFile))
+                {
+                    sender.SendEmail("lihe.chen@gmail.com",
+                    new List<string> (), 
                     "StockWatch Monitor Alert",
                     CompositePriceAlertHtml(alerts));
+                }
             }
             
         }

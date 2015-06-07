@@ -9,10 +9,10 @@ namespace StockWatch.Utility.Test
         [TestMethod]
         public void Encryption_can_encrypt_string()
         {
-            string plain = "Aa1234%^&*()-+";
-            string pwd = "Aa1234%^&*()-+";
-            string encrypted = Encryption.Encrypt(plain, pwd);
-            string decrypted = Encryption.Decrypt(encrypted, pwd);
+            string plain = "b9JQp4g3";
+            
+            string encrypted = Encryption.Encrypt(plain);
+            string decrypted = Encryption.Decrypt(encrypted);
             Assert.IsTrue(encrypted == plain);
 
         }
