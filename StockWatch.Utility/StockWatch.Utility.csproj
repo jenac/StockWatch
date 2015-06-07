@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encryption.cs" />
     <Compile Include="EnumUtils.cs" />
     <Compile Include="FileSystem.cs" />
     <Compile Include="Logger.cs" />
