@@ -40,6 +40,7 @@ namespace StockWatch.Internet
 			_port = int.Parse(elem.Element(_ACCOUNT).Element(_PORT).Value);
 			_user = elem.Element(_ACCOUNT).Element(_USER).Value;
 			_pass = elem.Element(_ACCOUNT).Element(_PASS).Value;
+            _pass = Encryption.Decrypt(_pass);
 
 		}
 		public void SendEmail(string to, List<string> cc, string subject, string body)

@@ -19,5 +19,11 @@ namespace StockWatch.Utility.Test
         {
             Assert.IsTrue(FileSystem.ToUnixPath(@"C:\windows\") == @"C:/windows/");
         }
+
+        [TestMethod]
+        public void CanGetStcokWatchFolderOnGoogleDrive()
+        {
+            Assert.IsTrue(!string.IsNullOrEmpty(FileSystem.GetStcokWatchFolderOnGoogleDrive()));
+        }
     }
 }

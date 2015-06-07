@@ -1,6 +1,8 @@
-﻿using System;
+﻿using StockWatch.Utility;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +24,7 @@ namespace StockWatch.DataService
         
         private ServiceSettings()
         {
-            this.EmailSettingFile = ConfigurationManager.AppSettings["EmailSettingFile"];
+            this.EmailSettingFile = Path.Combine(FileSystem.GetStcokWatchFolderOnGoogleDrive(), "EmailSetting.xml");
             var cc = ConfigurationManager.AppSettings["EmailCc"];
             if (cc != null)
                 this.EmalCc = cc.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries).ToList();

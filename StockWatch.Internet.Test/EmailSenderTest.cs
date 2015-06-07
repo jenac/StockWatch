@@ -2,6 +2,8 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
+using StockWatch.Utility;
 
 
 namespace StockWatch.Internet.Test
@@ -17,7 +19,8 @@ namespace StockWatch.Internet.Test
         {
             try
             {
-                EmailServiceSender es = new EmailServiceSender(@"C:\Users\Jen\OneDrive\StockWatch\EmailSetting.xml");
+                string settingFile = Path.Combine(FileSystem.GetStcokWatchFolderOnGoogleDrive(), "EmailSetting.xml");
+                EmailServiceSender es = new EmailServiceSender(settingFile);
                 es.SendEmail("lihe.chen@gmail.com",
                     new List<string>(),
                     "EmailSenderTest",

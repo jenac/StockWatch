@@ -5,8 +5,7 @@ namespace StockWatch.Utility
 {
 	public static class FileSystem
 	{
-		/*
-		public static string GetSWFolderOnGoogleDrive()
+		public static string GetStcokWatchFolderOnGoogleDrive()
 		{
 			string value = Directory.GetParent(
 				Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
@@ -15,7 +14,7 @@ namespace StockWatch.Utility
 				value = Directory.GetParent(value).FullName;
 			}
 			return Path.Combine(value, "Google Drive", "StockWatch");
-		}*/
+		}
 
 		public static void EnsureFolder(string folder)
 		{

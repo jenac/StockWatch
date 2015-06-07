@@ -10,7 +10,7 @@ namespace StockWatch.Utility
 {
     public static class Encryption
     {
-        public static string Encrypt(string text, string pwd)
+        public static string Encrypt(string text, string pwd = "Aa1234%^&*90-=")
         {
             byte[] originalBytes = Encoding.UTF8.GetBytes(text);
             byte[] encryptedBytes = null;
@@ -38,7 +38,7 @@ namespace StockWatch.Utility
             return Convert.ToBase64String(encryptedBytes);
         }
 
-        public static string Decrypt(string decryptedText, string pwd)
+        public static string Decrypt(string decryptedText, string pwd = "Aa1234%^&*90-=")
         {
             byte[] bytesToBeDecrypted = Convert.FromBase64String(decryptedText);
             byte[] passwordBytes = Encoding.UTF8.GetBytes(pwd);
